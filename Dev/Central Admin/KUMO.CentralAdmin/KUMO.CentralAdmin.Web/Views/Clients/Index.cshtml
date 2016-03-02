@@ -1,0 +1,164 @@
+﻿@using KUMO.CentralAdmin.Model;
+@model IEnumerable<KUMO.CentralAdmin.Model.Client>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcrum {
+
+<li>@Html.ActionLink("Clients", "Index", "Clients")</li>
+<li class="active"></li>
+
+}
+<h2>Clients</h2>
+    <style>
+        #ajaxloader
+    {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 8px solid #fff;
+        border-right-color: transparent;
+        border-radius: 50%;
+        box-shadow: 0 0 25px 2px #eee;
+    }
+
+    </style>
+
+<div id="custom-search-input" class="col-md-3">
+    <div class="input-group ">
+
+
+        @Html.TextBox("keyword", ViewBag.Keyword as string, new { @class = "search-query form-control", placeholder = "Search" })
+        <span class="input-group-btn">
+            <a class="btn btn-danger" id="btn-search">
+                <span class=" glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(ClientResources.ClientName, "Index", new { orderby = "ClientName", keyword = ViewBag.Keyword, order = ViewBag.SortOrder }, new { @class = "sort-link", rel = ViewBag.OrderBy, sp = "ClientName" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBServer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComponentNames)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBServer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+
+                @if (item.Status == ClientStatus.Error.ToString())
+                {
+                    <a href="" data-toggle="modal" data-target="#myModal_@item.Id">View logs</a>
+                    <div class="modal fade" id="myModal_@item.Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Error Logs : @item.ClientName</h4>
+                                </div>
+                                <div class="modal-body">
+                                    @Html.Raw(@item.DeploymentLogs);
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComponentNames)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit text-primary", title = "Click on this button to edit this item" }) |
+            @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-eye-open text-sucess", title = "Click on this button to view details this item" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove-sign text-danger", title = "Click on this button to remove this item" }) |
+               
+                @if (item.Status == KUMO.CentralAdmin.Model.ClientStatus.Pending.ToString() ||
+                    item.Status == KUMO.CentralAdmin.Model.ClientStatus.Error.ToString())
+                {
+                @Ajax.ActionLink("Deploy", "Deploy", new { id = item.Id }, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, OnComplete = "reload()", LoadingElementId = "loader-wrapper" }, new { @class = "glyphicon glyphicon-globe text-warning" , title="Click on this button to start deploy database" })
+            }
+                
+            @if (item.Status == KUMO.CentralAdmin.Model.ClientStatus.Deployed.ToString() )
+            {
+                @Html.ActionLink(" ", "Index", "EIPUsers", new { id = item.Id }, new { @class = "glyphicon glyphicon-user text-warning", title = "Click on this button to add new company admin to this clients" })
+            }
+                
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("Index", new { page = page, keyword = ViewBag.Keyword, orderby = ViewBag.OrderBy, order = ViewBag.SortOrder }), PagedListRenderOptions.Classic)
+@Html.Partial("SetupJSGrid")
+
+<div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+<link href="~/Content/loader.css" rel="stylesheet" />
+@section Scripts{
+
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script>
+        function reload(id) {
+            //var url =
+            window.location.href = window.location.href;
+            //Refresh current page
+        }
+
+    </script>
+
+}
+

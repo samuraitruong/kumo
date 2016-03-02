@@ -1,0 +1,207 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea,
+.form-control-feedback {
+    xmax-width: 280px;
+}
+
+#custom-search-input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color: #D9230F;
+    }
+
+.search-query:focus + button {
+    z-index: 3;
+}
+
+.table-list {
+    margin-top: 10px;
+    display: inline-flex;
+    width: 100%;
+}
+
+/* file icon *//*.file-icon {
+    background: transparent url(/Content/images/unknown.png) center left no-repeat;
+}*/
+
+/*.file-icon-medium {
+   width: 18px;
+    height: 18px;
+   xbackground-size: 18px 18px !important;
+}
+
+.pdf {
+    background: url(/Content/images/pdf.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}
+
+.xls, .csv, .xlw, .xlt, .xslx {
+    background: url(/Content/images//excel.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}
+
+.doc, .rtf, .wps, .txt {
+    background: url(/Content/images/word.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}
+
+.txt {
+    background: url(/Content/images/txt.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}
+
+.jpeg, .jpg, .bmp, .png, .gif {
+    background: url(/Content/images/image.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}
+
+.ppt {
+    background: url(/Content/images/ppt.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}
+
+.folder {
+    background: url(/Content/images/folder.png);
+    display: inline-block;
+    padding-left: 20px;
+    line-height: 15px;
+}*/
+
+.fc-time {
+    display: none;
+}
+
+.fc-unthemed .fc-today {
+    background: #C4D8D9 !important;
+}
+
+.nav-view {
+    margin: 30px 0px 10px 20px !important;
+    padding: 10px 10px 10px 10px !important;
+}
+
+    .nav-view li {
+        width: 100px;
+        text-align: center;
+    }
+
+.label-asterik {
+    float: left;
+    position: relative;
+    left: -11px;
+    width: 0px;
+}
+
+.fc-day {
+    vertical-align: bottom !important;
+}
+
+.fc-day-number {
+    font-weight: bold;
+}
+
+.fc-content-skeleton {
+    pointer-events: none;
+}
+
+.fc-event, .fc-more-cell div{
+    pointer-events: all;
+}
+.fc-more-cell div
+{
+    width: 40%;
+}
+.addToggle:hover {
+    text-decoration: none;
+}
+
+.addToggle {
+    float: right;
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+.no-list-style {
+    list-style:none;
+}
+
+  .upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+  color: #ccc;
+  border-style: dashed;
+  border-color: #0767C3;
+  line-height: 200px;
+  text-align: center;
+      background-color: #fff;
+
+}
+.upload-drop-zone.drop {
+  color: #222;
+  border-color: #222;
+}

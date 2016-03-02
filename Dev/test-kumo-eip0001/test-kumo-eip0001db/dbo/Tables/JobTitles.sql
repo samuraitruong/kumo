@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[JobTitles]
+(
+	[Id] INT NOT NULL IDENTITY(1,1)  PRIMARY KEY, 
+    [JobTitle] NVARCHAR(250) NOT NULL
+)

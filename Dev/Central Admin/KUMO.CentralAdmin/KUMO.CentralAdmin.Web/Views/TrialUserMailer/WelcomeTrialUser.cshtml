@@ -1,0 +1,42 @@
+@model KUMO.CentralAdmin.Web.Mailers.WelcomeTrialUserEmail
+To: @Model.To
+From: admin@kumo-eip.com
+Subject: Your KUMO account information
+
+<html>
+<head>
+</head>
+<body>
+    <p>Hi @Model.Firstname,</p>
+    <p>Welcome to KUMO Family!</p>
+    <p>Your KUMO account information is:</p>
+    <ul>
+        <li>URL: @Model.SiteURL</li>
+        <li>Email Address: @Model.UserName</li>
+        <li>Temporary Password:  @Model.Password</li>
+    </ul>
+    <p>When you sign in the environment for the first time, you will be prompted to change your password.&nbsp;</p>
+    <p>Strong password required. Enter 8-16 characters. Do not include common words or names. Combine uppercase letters, lowercase letters, numbers, and symbols.</p>
+    <p>Sincerely, we hope you will have a great experience using KUMO.</p>
+
+
+    <p>
+        Thank you,
+    </p>
+    <p>KUMO Team</p>
+    <p>KUMO Pte. Ltd. </p>
+    <p>Microsoft Innovation Centre</p>
+    <p>
+        1 Marina Boulevard #22-01 One Marina Boulevard Singapore 018989
+    </p>
+    <p>
+        <a target="_blank" href="http://www.successoutsourcing.com/kumo">
+            <span style="text-decoration:underline;"><font color="#0066cc">www.successoutsourcing.com/kumo</font></span>
+        </a>
+    </p>
+    <p><i>This is a system auto-generated email. Please do not reply to this email.</i></p>
+
+</body>
+</html>
+
+

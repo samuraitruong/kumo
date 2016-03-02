@@ -1,0 +1,118 @@
+﻿@using test_kumo_eip0001model;
+@using test_kumo_eip0001model.Resources;
+@model test_kumo_eip0001web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Add", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add a new account</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+
+                <div class="col-md-12">
+
+                    @Html.EditorFor(model => model.Firstname, new { required = "required" })
+
+                    @Html.EditorFor(model => model.Lastname, new { required = "required" })
+
+                    @Html.EditorFor(model => model.Email, new { required = "required" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SelectedPermissions, StringResources.Permisson, htmlAttributes: new { @class = "control-label col-md-3" })
+                        
+                        <div class="col-sm-6 col-md-6 controls">
+                            @foreach (var component in Model.SelectedComponents)
+                            {
+                                <div class="clearfix">
+                                    <label class="pull-left" style="padding-right: 20px; width: 12%">@component.Name</label>
+                                    <ul class="list-inline">
+                                        @foreach (var g in Model.SystemActions)
+                                        {
+                                            <li>
+                                                <input type="checkbox" name="SelectedPermissions"
+                                                       value="@string.Concat(component.Id.ToString(), "|", g.Id.ToString())"
+                                                       id="@string.Concat(component.Id.ToString(), g.Id.ToString())"
+                                                       data-actionid="@g.Id" data-componentid="@component.Id"
+                                                       @{if (Model.SelectedPermissions != null && Model.SelectedPermissions.Any(i => i == string.Concat(component.Id.ToString(), "|", g.Id.ToString()))) {  <text> checked='checked' </text>                  } } />
+                                                <label for="@string.Concat(component.Id.ToString(), g.Id.ToString())" style="font-weight: normal">@g.Name</label>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        <input type="submit" class="btn btn-primary" value="Add" /> | @Html.ActionLink(StringResources.BackToList, "Index")
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/Scripts/val")
+        @Scripts.Render("~/Scripts/md")
+        <script>
+            var viewId = @((int)Actions.View);
+
+            function setChecked(elem)
+            {
+                var actionId = $(elem).data("actionid");
+                var componentId = $(elem).data("componentid");
+
+                if ($(elem).is(":checked")) {
+                    if (actionId > viewId) {
+                        $("#" + componentId + viewId).attr("checked", "checked");
+                        //$("#" + componentId + viewId).attr("disabled", "disabled")
+                    }
+                }
+                else
+                {
+                    var checkedItems = $("input[id^='" + componentId + "']:checked");
+                    var isChecked = false;
+                    if(checkedItems.length > 0)
+                    {
+                        for(var i = 0; i< checkedItems.length ; i++)
+                        {
+                            if($(checkedItems[i]).data("actionid") > viewId)
+                            {
+                                isChecked= true;
+                                return;
+                            }
+                        }
+                    }
+
+                    if(!isChecked)
+                    {
+                        //$("#" + componentId + viewId).removeAttr("disabled");
+                    }
+                }
+            }
+
+            $(document).ready(function () {
+                var items = $("input[name='SelectedPermissions']");
+                for(var i = 0; i< items.length ; i++)
+                {
+                    setChecked(items[i]);
+                }
+
+                $("input[name='SelectedPermissions']").change(function () {
+                    setChecked(this);
+                });
+            });
+        </script>
+
+    }

@@ -1,0 +1,65 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using test_kumo_eip0001model.Resources;
+
+@model IEnumerable<test_kumo_eip0001model.Announcement>
+
+<h3>
+    All announcements
+</h3>
+
+<div id="custom-search-input" class="col-md-3">
+    <div class="input-group ">
+
+
+        @Html.TextBox("keyword", ViewBag.Keyword as string, new { @class = "search-query form-control", placeholder = "Search" })
+        <span class="input-group-btn">
+            <a class="btn btn-danger" id="btn-search">
+                <span class=" glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+
+    </div>
+</div>
+
+<div class="input-group col-md-9" style="text-align:right;">
+    @Html.ActionLink("Export", "Index", "Export", new { exportObject = "Employee", filename = "AllEmployee.xlsx" }, new { target = "_blank", @class = "btn btn-primary", @style = " display: none;" })
+</div>
+<div class="clearfix"></div>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th style="width: 65px"></th>
+        <th>
+            @Html.ActionLink(CCSResource.Title, "Index", new { orderby = "Title", keyword = ViewBag.Keyword, order = ViewBag.SortOrder }, new { @class = "sort-link", rel = ViewBag.OrderBy, sp = "Title" })
+
+        </th>
+        <th>
+            @CCSResource.Body
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list-alt text-primary", @title = StringResources.ViewItem })
+                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit text-success", @title = StringResources.EditItem })
+
+                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash text-danger", @title = StringResources.DeleteItem })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @{ var myHtmlString = new HtmlString(item.Body);}
+                @myHtmlString
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page, keyword = ViewBag.Keyword, orderby = ViewBag.OrderBy, order = ViewBag.SortOrder }), PagedListRenderOptions.Classic)
+@Html.Partial("SetupJSGrid")

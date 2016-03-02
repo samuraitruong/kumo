@@ -1,0 +1,84 @@
+﻿@model KUMO.CentralAdmin.Model.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcrum {
+
+    <li>@Html.ActionLink("Clients", "Index", "Clients")</li>
+   
+    <li class="active">@Model.ClientName</li>
+
+}
+
+<h3 class="panel-title">Client</h3>
+
+<div class="form-horizontal">
+    <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ClientName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ClientName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DBName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DBName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DBUser)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DBUser)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DBPassword)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DBPassword)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DBServer)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DBServer)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComponentNames)
+                </dd>
+
+            </dl>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-7">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) 
+                    @Html.ActionLink("Manage Admin", "Index", "EIPUsers", new { id = Model.Id }, new { @class = "btn btn-success" }) | 
+                    @Html.ActionLink("Back to List", "Index")
+
+                </div>
+            </div>
+        </div>
+    </div>

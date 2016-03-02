@@ -1,0 +1,407 @@
+﻿.file-icon-medium {
+    width:24px;
+    height:24px;
+    display:inline-block;
+    background-size:cover !important; 
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.folder{
+    background: url('/content/icons/Folders-Windows-Folder-icon.png');
+}
+.3gp {
+    background: url('/content/icons/fileicons/file_extension_3gp.png');
+}
+
+.7z {
+    background: url('/content/icons/fileicons/file_extension_7z.png');
+}
+
+.ace {
+    background: url('/content/icons/fileicons/file_extension_ace.png');
+}
+
+.ai {
+    background: url('/content/icons/fileicons/file_extension_ai.png');
+}
+
+.aif {
+    background: url('/content/icons/fileicons/file_extension_aif.png');
+}
+
+.aif {
+    background: url('/content/icons/fileicons/file_extension_aiff.png');
+}
+
+.amr {
+    background: url('/content/icons/fileicons/file_extension_amr.png');
+}
+
+.asf {
+    background: url('/content/icons/fileicons/file_extension_asf.png');
+}
+
+.asx {
+    background: url('/content/icons/fileicons/file_extension_asx.png');
+}
+
+.bat {
+    background: url('/content/icons/fileicons/file_extension_bat.png');
+}
+
+.bin {
+    background: url('/content/icons/fileicons/file_extension_bin.png');
+}
+
+.bmp {
+    background: url('/content/icons/fileicons/file_extension_bmp.png');
+}
+
+.bup {
+    background: url('/content/icons/fileicons/file_extension_bup.png');
+}
+
+.cab {
+    background: url('/content/icons/fileicons/file_extension_cab.png');
+}
+
+.cbr {
+    background: url('/content/icons/fileicons/file_extension_cbr.png');
+}
+
+.cda {
+    background: url('/content/icons/fileicons/file_extension_cda.png');
+}
+
+.cdl {
+    background: url('/content/icons/fileicons/file_extension_cdl.png');
+}
+
+.cdr {
+    background: url('/content/icons/fileicons/file_extension_cdr.png');
+}
+
+.chm {
+    background: url('/content/icons/fileicons/file_extension_chm.png');
+}
+
+.dat {
+    background: url('/content/icons/fileicons/file_extension_dat.png');
+}
+
+.div {
+    background: url('/content/icons/fileicons/file_extension_divx.png');
+}
+
+.dll {
+    background: url('/content/icons/fileicons/file_extension_dll.png');
+}
+
+.dmg {
+    background: url('/content/icons/fileicons/file_extension_dmg.png');
+}
+
+.doc,
+.docx {
+    background: url('/content/icons/fileicons/file_extension_doc.png');
+}
+
+.dss {
+    background: url('/content/icons/fileicons/file_extension_dss.png');
+}
+
+.dvf {
+    background: url('/content/icons/fileicons/file_extension_dvf.png');
+}
+
+.dwg {
+    background: url('/content/icons/fileicons/file_extension_dwg.png');
+}
+
+.eml {
+    background: url('/content/icons/fileicons/file_extension_eml.png');
+}
+
+.eps {
+    background: url('/content/icons/fileicons/file_extension_eps.png');
+}
+
+.exe {
+    background: url('/content/icons/fileicons/file_extension_exe.png');
+}
+
+.fla {
+    background: url('/content/icons/fileicons/file_extension_fla.png');
+}
+
+.flv {
+    background: url('/content/icons/fileicons/file_extension_flv.png');
+}
+
+.gif {
+    background: url('/content/icons/fileicons/file_extension_gif.png');
+}
+
+.gz. {
+    background: url('/content/icons/fileicons/file_extension_gz.png');
+}
+
+.hqx {
+    background: url('/content/icons/fileicons/file_extension_hqx.png');
+}
+
+.htm {
+    background: url('/content/icons/fileicons/file_extension_htm.png');
+}
+
+.htm {
+    background: url('/content/icons/fileicons/file_extension_html.png');
+}
+
+.ifo {
+    background: url('/content/icons/fileicons/file_extension_ifo.png');
+}
+
+.ind {
+    background: url('/content/icons/fileicons/file_extension_indd.png');
+}
+
+.iso {
+    background: url('/content/icons/fileicons/file_extension_iso.png');
+}
+
+.jar {
+    background: url('/content/icons/fileicons/file_extension_jar.png');
+}
+
+.jpe {
+    background: url('/content/icons/fileicons/file_extension_jpeg.png');
+}
+
+.jpg {
+    background: url('/content/icons/fileicons/file_extension_jpg.png');
+}
+
+.lnk {
+    background: url('/content/icons/fileicons/file_extension_lnk.png');
+}
+
+.log {
+    background: url('/content/icons/fileicons/file_extension_log.png');
+}
+
+.m4a {
+    background: url('/content/icons/fileicons/file_extension_m4a.png');
+}
+
+.m4b {
+    background: url('/content/icons/fileicons/file_extension_m4b.png');
+}
+
+.m4p {
+    background: url('/content/icons/fileicons/file_extension_m4p.png');
+}
+
+.m4v {
+    background: url('/content/icons/fileicons/file_extension_m4v.png');
+}
+
+.mcd {
+    background: url('/content/icons/fileicons/file_extension_mcd.png');
+}
+
+.mdb {
+    background: url('/content/icons/fileicons/file_extension_mdb.png');
+}
+
+.mid {
+    background: url('/content/icons/fileicons/file_extension_mid.png');
+}
+
+.mov {
+    background: url('/content/icons/fileicons/file_extension_mov.png');
+}
+
+.mp2 {
+    background: url('/content/icons/fileicons/file_extension_mp2.png');
+}
+
+.mp4 {
+    background: url('/content/icons/fileicons/file_extension_mp4.png');
+}
+
+.mpe {
+    background: url('/content/icons/fileicons/file_extension_mpeg.png');
+}
+
+.mpg {
+    background: url('/content/icons/fileicons/file_extension_mpg.png');
+}
+
+.msi {
+    background: url('/content/icons/fileicons/file_extension_msi.png');
+}
+
+.msw {
+    background: url('/content/icons/fileicons/file_extension_mswmm.png');
+}
+
+.ogg {
+    background: url('/content/icons/fileicons/file_extension_ogg.png');
+}
+
+.pdf {
+    background: url('/content/icons/fileicons/file_extension_pdf.png');
+}
+
+.png {
+    background: url('/content/icons/fileicons/file_extension_png.png');
+}
+
+.pps {
+    background: url('/content/icons/fileicons/file_extension_pps.png');
+}
+
+.ps. {
+    background: url('/content/icons/fileicons/file_extension_ps.png');
+}
+
+.psd {
+    background: url('/content/icons/fileicons/file_extension_psd.png');
+}
+
+.pst {
+    background: url('/content/icons/fileicons/file_extension_pst.png');
+}
+
+.ptb {
+    background: url('/content/icons/fileicons/file_extension_ptb.png');
+}
+
+.pub {
+    background: url('/content/icons/fileicons/file_extension_pub.png');
+}
+
+.qbb {
+    background: url('/content/icons/fileicons/file_extension_qbb.png');
+}
+
+.qbw {
+    background: url('/content/icons/fileicons/file_extension_qbw.png');
+}
+
+.qxd {
+    background: url('/content/icons/fileicons/file_extension_qxd.png');
+}
+
+.ram {
+    background: url('/content/icons/fileicons/file_extension_ram.png');
+}
+
+.rar {
+    background: url('/content/icons/fileicons/file_extension_rar.png');
+}
+
+.rm. {
+    background: url('/content/icons/fileicons/file_extension_rm.png');
+}
+
+.rmv {
+    background: url('/content/icons/fileicons/file_extension_rmvb.png');
+}
+
+.rtf {
+    background: url('/content/icons/fileicons/file_extension_rtf.png');
+}
+
+.sea {
+    background: url('/content/icons/fileicons/file_extension_sea.png');
+}
+
+.ses {
+    background: url('/content/icons/fileicons/file_extension_ses.png');
+}
+
+.sit {
+    background: url('/content/icons/fileicons/file_extension_sit.png');
+}
+
+.sit {
+    background: url('/content/icons/fileicons/file_extension_sitx.png');
+}
+
+.ss. {
+    background: url('/content/icons/fileicons/file_extension_ss.png');
+}
+
+.swf {
+    background: url('/content/icons/fileicons/file_extension_swf.png');
+}
+
+.tgz {
+    background: url('/content/icons/fileicons/file_extension_tgz.png');
+}
+
+.thm {
+    background: url('/content/icons/fileicons/file_extension_thm.png');
+}
+
+.tif {
+    background: url('/content/icons/fileicons/file_extension_tif.png');
+}
+
+.tmp {
+    background: url('/content/icons/fileicons/file_extension_tmp.png');
+}
+
+.tor {
+    background: url('/content/icons/fileicons/file_extension_torrent.png');
+}
+
+.ttf {
+    background: url('/content/icons/fileicons/file_extension_ttf.png');
+}
+
+.txt {
+    background: url('/content/icons/fileicons/file_extension_txt.png');
+}
+
+.unk {
+    background: url('/content/icons/fileicons/file_extension_unknown.png');
+}
+
+.vcd {
+    background: url('/content/icons/fileicons/file_extension_vcd.png');
+}
+
+.vob {
+    background: url('/content/icons/fileicons/file_extension_vob.png');
+}
+
+.wav {
+    background: url('/content/icons/fileicons/file_extension_wav.png');
+}
+
+.wma {
+    background: url('/content/icons/fileicons/file_extension_wma.png');
+}
+
+.wmv {
+    background: url('/content/icons/fileicons/file_extension_wmv.png');
+}
+
+.wps {
+    background: url('/content/icons/fileicons/file_extension_wps.png');
+}
+
+.xls {
+    background: url('/content/icons/fileicons/file_extension_xls.png');
+}
+
+.xpi {
+    background: url('/content/icons/fileicons/file_extension_xpi.png');
+}
+
+.zip {
+    background: url('/content/icons/fileicons/file_extension_zip.png');
+}

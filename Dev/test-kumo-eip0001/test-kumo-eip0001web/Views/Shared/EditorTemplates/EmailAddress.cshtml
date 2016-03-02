@@ -1,0 +1,39 @@
+@using test_kumo_eip0001web.Utility
+@using System;
+@model object
+
+@{
+    var IsRequiredField = ViewData.ModelMetadata.IsRequired;
+    var htmlAttributes = new RouteValueDictionary();
+    if (ViewBag.@class != null)
+    {
+        htmlAttributes.Add("class", "control-label  " + ViewBag.@class);
+    }
+    else
+    {
+        htmlAttributes.Add("class", "form-control col-md-8");
+    }
+    if (ViewBag.@type != null)
+    {
+        htmlAttributes.Add("type", ViewBag.@type);
+    }
+    if (ViewBag.placeholder != null)
+    {
+        htmlAttributes.Add("placeholder", ViewBag.placeholder);
+    }
+}
+
+<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error")) @Html.Raw(IsRequiredField?"has-feedback":"")">
+    @Html.LabelFor(m => m, new { @class = "control-label col-md-3" })
+    <div class="col-sm-6 controls">
+        @Html.TextBox(
+            "",
+            ViewData.TemplateInfo.FormattedModelValue,
+            htmlAttributes)
+        @if (IsRequiredField)
+        {
+            <span class="glyphicon glyphicon-asterisk form-control-feedback text-danger"></span>
+        }
+        @Html.ValidationMessageFor(m => m, null, new { @class = "help-block text-danger" })
+    </div>
+</div>

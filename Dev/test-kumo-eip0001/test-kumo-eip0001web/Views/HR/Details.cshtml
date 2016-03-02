@@ -1,0 +1,158 @@
+﻿@model test_kumo_eip0001model.Employee
+@using test_kumo_eip0001model;
+@using test_kumo_eip0001model.Resources;
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.ViewItem</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @StringResources.EmployeeId
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.EmployeeId)
+                    </dd>
+                    <dt>
+                        @StringResources.FirstName
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Firstname)
+                    </dd>
+
+                    <dt>
+                        @StringResources.LastName
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Lastname)
+                    </dd>
+
+                    <dt>
+                        @StringResources.Fullname
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Fullname)
+                    </dd>
+
+                    <dt>
+                        @StringResources.DateOfBirth
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DateOfBirth, "StandardDateFormat")
+                    </dd>
+
+                    <dt>
+                        @StringResources.JobTitle
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.JobTitle)
+                    </dd>
+
+                    <dt>
+                        @StringResources.Department
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Department.Name)
+                    </dd>
+
+                    <dt>
+                        @StringResources.LineManager
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Manager.Fullname)
+                    </dd>
+
+                    <dt>
+                        @StringResources.EmploymentStatus   
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                    <dt>
+                        @StringResources.EffectiveDate
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.EffectiveDate, "StandardDateFormat")
+                    </dd>
+
+                    <dt>
+                        @StringResources.PhoneNumber
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Phone, "PhoneFormat")
+                    </dd>
+
+                    <dt>
+                        @StringResources.DirectPhone
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DirectPhone,"PhoneFormat")
+                    </dd>
+
+                    <dt>
+                        @StringResources.EmailAddress
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+
+
+                   
+                    
+
+                </dl>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+                                @Html.ActionLink(StringResources.BackToList, "Index")
+</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

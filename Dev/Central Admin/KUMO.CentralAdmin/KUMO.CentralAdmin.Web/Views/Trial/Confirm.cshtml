@@ -1,0 +1,61 @@
+﻿@using KUMO.CentralAdmin.Web.Models
+@using KUMO.CentralAdmin.Model
+@model TrialUserViewModel
+@{
+    ViewBag.Title = "Create Trial Account";
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Trial Account</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/ico" href="~/Content/images/KUMOFavicon.ico">
+    <link href="/Content/main.css" rel="stylesheet" />
+
+    <link href="/Content/site.css" rel="stylesheet" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div style="text-align: center " class="col-xs-8">
+
+        <div style="text-align: center; margin-left: 25px " class="col-xs-11">
+            <img src="/Content/Images/illustration.jpg" class="img-responsive" />
+        </div>
+
+    </div>
+
+    <div class="col-xs-4 login" style="height: 100% ;padding-top: 45px">
+
+        <div class="row"><img src="/Content/Images/bannerlogo.jpg" style="margin-top: 20px;margin-bottom: 20px;" /></div>
+        <div class="row">
+            <h4 style="margin-bottom: 30px;">Sign up to KUMO trial</h4>
+        </div>
+        <div style="margin-right: 33px;" class="alert alert-success">
+           Your trial account has been register. You will recieve an email confirmation shortly. We will send a separate email when you enviroment up and running. 
+
+            
+        </div>
+
+        <div class="row">
+            @Html.ActionLink("Register new account", "Index", null, new { @class="btn btn-primary" })
+        </div>
+
+    </div>
+
+    <div class="navbar navbar-fixed-bottom">
+        <div class="col-xs-8">&nbsp;</div>
+        <div class="col-xs-4">
+            @StringResources.FooterString
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+</body>
+</html>

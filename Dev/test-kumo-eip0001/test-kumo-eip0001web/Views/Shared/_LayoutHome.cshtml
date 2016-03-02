@@ -1,0 +1,80 @@
+﻿@using test_kumo_eip0001web.Utility
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/ico" href="~/Content/images/KUMOFavicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/Scripts/bootstrap-table/bootstrap-table.min.js"></script>
+
+    @Styles.Render("~/Content/css")
+
+</head>
+
+<body ng-app="rootModule" style="background: url('/Content/images/KUMOWatermarkTransparent.jpg') no-repeat center top; background-size:100% ; padding-top:0">
+
+    <div class="navbar-collapse navbar-responsive-collapse collapse" style="background: #0072c6;">
+        @if (Request.IsAuthenticated)
+        {
+            <ul class="nav navbar-nav top" style="padding-top: 5px; padding-left: 20px; padding-top: 5px; padding-left: 20px;">
+                <li style="padding: 0 10px;"><span style="color: #fff; font-size: 30px; font-weight: bold;">@SessionManager.CurrentTenant.Name</span></li>
+                @if ((ViewContext.RouteData.Values["controller"] as String) != "Home")
+                {
+                    <li class="@Url.IsSelected("Home")">@Html.ActionLink("Home", "Index", "Home")</li>
+                    if (User.IsInRole(RoleNames.Admin))
+                    {
+                        <li class="@Url.IsSelected("Account")">@Html.ActionLink("User Management", "Index", "Account")</li>
+                    }
+                    if (TenantHelper.IsComponentAvailable("HR") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "HR"))
+                    {
+                        <li class="@Url.IsSelected("HR")">@Html.ActionLink("HR", "Index", "HR")</li>
+                    }
+                    if (TenantHelper.IsComponentAvailable("CRM") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "CRM"))
+                    {
+                        <li class="@Url.IsSelected("CRM")">@Html.ActionLink("CRM", "Index", "CRM")</li>
+                    }
+                    if (TenantHelper.IsComponentAvailable("CCS") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "CCS"))
+                    {
+                        <li class="@Url.IsSelected("CCS")">@Html.ActionLink("CCS", "Index", "CCS")</li>
+                    }
+                    if (TenantHelper.IsComponentAvailable("ERP") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "ERP"))
+                    {
+                        <li class="@Url.IsSelected("ERP")">@Html.ActionLink("ERP", "Calendar", "ERP")</li>
+                    }
+                    if (TenantHelper.IsComponentAvailable("MIS") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "MIS"))
+                    {
+                        <li class="@Url.IsSelected("MIS")">@Html.ActionLink("MIS", "Index", "MIS")</li>
+                    }
+
+                }
+            </ul>
+        }
+        @Html.Partial("_LoginPartial")
+    </div>
+    
+    <section>
+        <a href="/Home"><img style="margin-top: 30px; margin-left:30px; height:50px" src="~/Content/images/KUMOLogo.jpg"></a>
+    </section>
+
+    <div class="container body-content" style="min-height:565px">
+        <ib-toast-bar></ib-toast-bar>
+        <toaster-container></toaster-container>
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render(
+                    "~/bundles/scripts/libraries",
+                    "~/bundles/scripts/application/prereq",
+                    "~/bundles/scripts/application/services",
+                    "~/bundles/scripts/application/view"
+                    )
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<test_kumo_eip0001model.DocumentLibrary>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section SubMenu {
+
+        <li style="width:130px">@Html.ActionLink("<i class='glyphicon glyphicon-folder-open text-warning'> </i> New Library ", "Add", "DocumentLibraries", null, null, htmlEncode: false)</li>
+
+    <li>@Html.ActionLink("New folder", "NewFolder", new { root = ViewBag.FolderId })</li>
+    <li>@Html.ActionLink("Upload", "Upload", new { root = ViewBag.FolderId })</li>
+    <li>@Html.ActionLink("Download", "Download")</li>
+
+    }
+
+    <h3>
+        @StringResources.DMSComponent
+    </h3>
+    <div id="custom-search-input">
+        <div class="input-group col-md-3">
+
+
+            @Html.TextBox("keyword", ViewBag.Keyword as string, new { @class = "search-query form-control", placeholder = "Search" })
+            <span class="input-group-btn">
+                <a class="btn btn-danger" id="btn-search">
+                    <span class=" glyphicon glyphicon-search"></span>
+                </a>
+            </span>
+
+        </div>
+    </div>
+    <br />
+
+    <table class="table table table-bordered">
+        <tr>
+            <th style="width: 65px"></th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list-alt text-primary", @title = StringResources.ViewItem })
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit text-success", @title = StringResources.EditItem })
+
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash text-danger", @title = StringResources.DeleteItem })
+                </td>
+
+                <td>
+                    @Html.RouteLink(item)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+            </tr>
+        }
+
+    </table>

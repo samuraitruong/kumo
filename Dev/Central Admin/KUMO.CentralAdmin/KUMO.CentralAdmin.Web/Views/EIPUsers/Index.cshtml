@@ -1,0 +1,89 @@
+﻿@model IEnumerable<KUMO.CentralAdmin.Model.EIPUser>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentClient = ViewBag.Client as KUMO.CentralAdmin.Model.Client;
+    
+}
+
+@section Breadcrum {
+
+    <li>@Html.ActionLink("Clients", "Index", "Clients")</li>
+    <li>@Html.ActionLink(currentClient.ClientName, "Details", "Clients", new { id = currentClient.Id }, null)</li>
+
+    <li class="active">All Administrators</li>
+
+}
+
+<h2>Users</h2>
+<style>
+    #ajaxloader {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 8px solid #fff;
+        border-right-color: transparent;
+        border-radius: 50%;
+        box-shadow: 0 0 25px 2px #eee;
+    }
+</style>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+<link href="~/Content/loader.css" rel="stylesheet" />
+@section Scripts{
+
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script>
+            function reload(id) {
+                //var url =
+                window.location.href = window.location.href;
+                //Refresh current page
+            }
+
+    </script>
+
+}
+

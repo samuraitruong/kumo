@@ -1,0 +1,131 @@
+﻿@using test_kumo_eip0001model.Resources;
+@model test_kumo_eip0001model.Employee
+@{
+    
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.AddANewItem</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <div class="col-md-12">
+
+
+                    <div class="col-xs-3">
+                        <!-- required for floating -->
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-left">
+                            <li class="active"><a href="#PeronalInfo" data-toggle="tab">Peronal Info</a></li>
+                            <li><a href="#ContactInfo" data-toggle="tab">Contact Info</a></li>
+                            <li><a href="#EmploymentInfo" data-toggle="tab">Employment Info</a></li>
+                            <li><a href="#Salary" data-toggle="tab">Salary</a></li>
+                            <li><a href="#Qualifications" data-toggle="tab">Qualifications</a></li>
+                            <li><a href="#EmergencyContact" data-toggle="tab">Emergency Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-9">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="PeronalInfo">
+
+                                
+                                @Html.EditorFor(model => model.Firstname)
+
+                                @Html.EditorFor(model => model.Lastname)
+
+                                @Html.EditorFor(model => model.Fullname)
+                                @Html.EditorFor(model => model.DateOfBirth)
+                                @Html.EditorFor(model => model.Gender)
+                                @Html.EditorFor(model => model.NationalityId, "Metadata", new { metadata= typeof(Nationality) })
+                                @Html.EditorFor(model => model.IdentificationNumber)
+                                @Html.EditorFor(model => model.IdentityType, "Metadata", new { metadata = typeof(IdentityType) })
+
+
+                            </div>
+                            <div class="tab-pane" id="ContactInfo">
+                                @Html.EditorFor(model => model.MobileNumber)
+                                @Html.EditorFor(model => model.WorkNumber)
+                                @Html.EditorFor(model => model.HomeNumber)
+                                @Html.EditorFor(model => model.Email)
+                                @Html.EditorFor(model => model.Address)
+                                
+
+                            </div>
+                            <div class="tab-pane" id="EmploymentInfo">
+                                @Html.EditorFor(model => model.JobTitleId, "Metadata", new { metadata = typeof(JobTitle), displayfield = "Title" })
+                                @Html.EditorFor(model => model.DepartmentID, "Metadata", new { metadata = typeof(Department) })
+                                @Html.EditorFor(model => model.EmploymentStatusId, "Metadata", new { metadata = typeof(EmploymentStatus) })
+                                @Html.EditorFor(model => model.LineManagerId, "Metadata", new { metadata = typeof(Employee), displayfield = "Fullname" })
+
+                                @Html.EditorFor(model=> model.Current)
+                                @Html.EditorFor(model => model.EffectiveDate)
+                                @Html.EditorFor(model => model.EndDate)
+                                @Html.EditorFor(model => model.TerminaiondDate)
+
+                                @Html.EditorFor(model => model.WorkPassTypeId, "Metadata", new { metadata = typeof(WorkPassType) })
+                                @Html.EditorFor(model => model.WorkPassExpiryDate)
+                            </div>
+                            <div class="tab-pane" id="Salary">
+                                @Html.EditorFor(model => model.Salary)
+                                @Html.EditorFor(model => model.PaymentFrequencyId, "Metadata", new { metadata = typeof(PaymentFrequency) })
+                                @Html.EditorFor(model => model.PaymentModeId, "Metadata", new { metadata = typeof(PaymentMode) })
+                                @Html.EditorFor(model => model.BankId, "Metadata", new { metadata = typeof(Bank) })
+                                @Html.EditorFor(model => model.AccountName)
+                                @Html.EditorFor(model => model.MedicalIsuranceNumber)
+
+                            </div>
+                            <div class="tab-pane" id="Qualifications">
+                                @Html.EditorFor(model => model.HighestQualificationId, "Metadata", new { metadata = typeof(Qualification) })
+                                @Html.EditorFor(model => model.Skills)
+                            </div>
+                            <div class="tab-pane" id="EmergencyContact">
+                                @Html.EditorFor(model => model.EmergencyContactFirstName)
+                                @Html.EditorFor(model => model.EmergencyContactLastName)
+                                @Html.EditorFor(model => model.EmergencyContactFullName)
+                                @Html.EditorFor(model => model.EmergencyContactMobileNumber)
+                                @Html.EditorFor(model => model.EmergencyContactWorkNumber)
+                                @Html.EditorFor(model => model.EmergencyContactEmailAddress)
+
+                                @Html.EditorFor(model => model.EmergencyContactRelationshipId, "Metadata", new { metadata = typeof(Relationship) })
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+
+                        <input type="submit" class="btn btn-primary" value="Add" /> | @Html.ActionLink(StringResources.BackToList, "Index")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/val")
+    @Scripts.Render("~/Scripts/md")
+    <script>
+        $(document).ready(function () {
+            //$("[]")
+        });
+    </script>
+}
+
+
+
+
+
+

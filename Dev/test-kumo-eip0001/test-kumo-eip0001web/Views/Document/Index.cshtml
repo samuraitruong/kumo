@@ -1,0 +1,191 @@
+﻿@model IEnumerable<test_kumo_eip0001model.Document>
+@using MvcFileUploader;
+@using MvcFileUploader.HtmlHelper;
+@using MvcFileUploader.Models;
+@using test_kumo_eip0001web.Utility;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentLib = (DocumentLibrary)ViewBag.Library;
+    var folders = ViewBag.FolderPaths!= null ? (ViewBag.FolderPaths as List<Document>) : new List<Document>();
+}
+
+
+@section SubMenu {
+
+    <li style="width:130px">@Html.ActionLink("<i class='glyphicon glyphicon-folder-open text-warning'> </i> New Library ", "Add", "DocumentLibraries", null, null, htmlEncode: false)</li>
+
+    <li>@Html.ActionLink("New folder", "NewFolder", new { root = ViewBag.FolderId })</li>
+    @*<li>@Html.ActionLink("Upload", "Upload", new { root = ViewBag.FolderId })</li>*@
+    <li>@Html.ActionLink("Download", "DownloadFile", new { uuid = ViewBag.UUID })</li>
+
+}
+<link href="~/Content/filetype.css"  rel="stylesheet"/>
+<h3>
+    @StringResources.MISComponent
+</h3>
+<ol class="breadcrumb">
+    <li><a href="/mis">Home</a></li>
+    <li>@Html.RouteLink(currentLib)</li>
+    
+    @foreach (var item in folders)
+    {
+        if (item.Id == folders.Last().Id)
+        {
+            <li class="active">@item.Name</li>
+        }
+        else
+        {
+            <li> @Html.ActionLink(item.Name, "Index", new { root = item.Id })</li>
+
+        }
+
+    }
+    
+</ol>
+
+
+<div id="custom-search-input" class="col-md-3">
+    <div class="input-group ">
+        @Html.TextBox("keyword", ViewBag.Keyword as string, new { @class = "search-query form-control", placeholder = "Search", @autofocus = "autofocus" })
+        <span class="input-group-btn">
+            <a class="btn btn-danger" id="btn-search">
+                <span class=" glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="table-list">
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 65px"></th>
+
+            <th style="width: 30px"></th>
+            <th>
+                Name
+            </th>
+
+            <th>
+            Size
+            </th>
+
+            <th>
+                Create Date
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.RouteLink(" ", KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = currentLib.Name, action = "Edit", uuid = item.Uuid }, new { @class = "glyphicon glyphicon-edit text-success" })
+                    @Html.RouteLink(" ", KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = currentLib.Name, action = "Delete", uuid = item.Uuid }, new { @class = "glyphicon glyphicon-trash text-danger" })
+                </td>
+                <td>
+                    @if (item.ItemType == (int)DocumentType.File)
+                    {
+                        @Html.ActionLink(" ", "DownloadFile", new { uuid = item.Uuid }, new { @class = "file-icon file-icon-medium " + item.Extension.Replace(".", ""), title = "Click here to download : " + item.Name, target = "_blank" })
+
+                    }
+                    else
+                    {
+                        @Html.ActionLink(" ", "Index", new { root = item.Id }, new { @class = "file-icon file-icon-medium folder"})
+                    }
+                    
+                                  
+                </td>
+                <td>
+                    @if (item.ItemType == (int) DocumentType.File)
+                    {
+                    //http://codepen.io/betdream/pen/frDqh thought is is better html
+                        <li class="dropdown no-list-style">
+                            <a href="@Url.Action("DownloadFile", new { uuid = item.Uuid })" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false">
+                                @Html.Raw(item.Name + item.Extension) <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Download", "DownloadFile", new { uuid = item.Uuid }, new { title = "Click here to download : " + item.Name, target = "_blank", tabindex = "-1" })  </li>
+                                <li class="divider"></li>
+                                <li> @Html.RouteLink("Edit", KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = currentLib.Name, action = "Edit", uuid = item.Uuid }, new { tabindex = "-1" })</li>
+                                <li> @Html.RouteLink("Delete", KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = currentLib.Name, action = "Delete", uuid = item.Uuid }, new { tabindex = "-1" })</li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">View Version</a></li>
+                               
+                            </ul>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="dropdown no-list-style">
+                            <a href="@Url.Action("Index", new { root = item.Id })" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false">
+                                @Html.Raw(item.Name) <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Open", "Index", new { root = item.Id })</li>
+                                <li>@Html.ActionLink("Download Folder", "DownloadFile", new { uuid = item.Uuid }, new { title = "Click here to download : " + item.Name, target = "_blank", tabindex = "-1" })  </li>
+                                <li class="divider"></li>
+                                <li> @Html.RouteLink("Edit", KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = currentLib.Name, action = "Edit", uuid = item.Uuid }, new { tabindex = "-1" })</li>
+                                <li> @Html.RouteLink("Delete", KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = currentLib.Name, action = "Delete", uuid = item.Uuid }, new { tabindex = "-1" })</li>
+
+
+                            </ul>
+                        </li>
+
+
+                        @*@Html.ActionLink(item.Name, "Index", new { root = item.Id })*@
+                        @*@Html.DisplayFor(modelItem => item.Name)*@
+                    }
+                </td>
+
+                <td>
+                    @if (item.ItemType == (int)DocumentType.File)
+                    {
+
+                        @Html.Raw(item.FileSize.Value.ToFileSize())
+                    }
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created, "StandardDateFormat")
+                </td>
+                             
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="well">
+    <legend>Upload</legend>
+    <p class="help-block"></p>
+    @(
+ Html.MvcFileUpload()
+        .UploadAt(Url.Action("UploadFile"))
+            .UIStyle(UploadUI.Bootstrap)
+        //.WithFileTypes(@"/(\.|\/)(jpe?g|png)$/i")
+        .WithMaxFileSize(5000000)
+        .AddFormField("root", ViewBag.RootFolder)
+        .RenderInline("_MvcFileupload")
+        
+        
+    )
+
+</div>
+
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { root=ViewBag.FolderId, page = page, keyword = ViewBag.Keyword, orderby = ViewBag.OrderBy, order = ViewBag.SortOrder }), PagedListRenderOptions.Classic)
+@Html.Partial("SetupJSGrid")
+
+@section Scripts{
+    <script src="~/Scripts/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-toggle').dropdownHover(options);
+        });
+    </script>
+}

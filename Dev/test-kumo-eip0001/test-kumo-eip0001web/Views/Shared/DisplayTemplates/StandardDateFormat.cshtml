@@ -1,0 +1,6 @@
+﻿@using test_kumo_eip0001model.Resources;
+@model object
+@{
+var dateTime = Convert.ToDateTime(Model);
+}
+@dateTime.ToString(StringResources.DateFormat)

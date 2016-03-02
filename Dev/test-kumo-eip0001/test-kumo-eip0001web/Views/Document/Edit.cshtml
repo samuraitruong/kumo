@@ -1,0 +1,43 @@
+﻿@model test_kumo_eip0001model.ViewModels.DocumentEditViewModel
+@using test_kumo_eip0001web.Utility;
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+   @Html.HiddenFor(model => model.ParentId)
+   @Html.HiddenFor(model=>model.Id)
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.EditItem</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Name) 
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        <input type="submit" class="btn btn-primary" value="Save" /> | @Html.RouteLink(StringResources.BackToList, KumoConstants.DOCUMENT_ROOT_ROUTE_NAME, new { doclib = Model.Library.Name, root = Model.ParentId, action = "index", uuid = Model.Uuid })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/val")
+    @Scripts.Render("~/Scripts/md")
+    <script>
+    $(document).ready(function () {
+        //$("[]")
+    });
+    </script>
+
+}
+
+
+

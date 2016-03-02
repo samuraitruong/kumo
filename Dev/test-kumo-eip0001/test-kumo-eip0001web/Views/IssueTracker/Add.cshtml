@@ -1,0 +1,86 @@
+﻿@model test_kumo_eip0001model.ViewModels.IssueTrackerViewModel
+@*@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add a new issue traker</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Name)
+
+                    @Html.EditorFor(model => model.StartDate)
+                    @Html.EditorFor(model => model.DueDate)
+                    @Html.EditorFor(model => model.ClosedDate)
+                    @Html.EditorFor(model => model.Description)
+                    @Html.EditorFor(model => model.Resolution)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Priority, IssueTrackerResource.Priority, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-sm-6 col-md-6 controls">
+                            @Html.DropDownList("Priority", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Category, IssueTrackerResource.Category, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-sm-6 col-md-6 controls">
+                            @Html.DropDownList("Category", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, IssueTrackerResource.IssueStatus, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-sm-6 col-md-6 controls">
+                            @Html.DropDownList("Status", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AssignedTo, IssueTrackerResource.AssignedTo, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-sm-6 col-md-6 controls">
+                            @Html.DropDownList("AssignedTo", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        
+                        <input type="submit" class="btn btn-primary" value="Add" /> | 
+                        @Html.ActionLink(StringResources.BackToList, "Index")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/val")
+    @Scripts.Render("~/Scripts/md")
+    <script>
+        $(document).ready(function () {
+            //$("[]")
+        });
+    </script>
+}

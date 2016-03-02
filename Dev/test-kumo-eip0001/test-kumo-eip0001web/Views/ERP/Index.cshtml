@@ -1,0 +1,105 @@
+﻿@model IEnumerable<test_kumo_eip0001model.Calendar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>
+    Resource Planning
+</h3>
+
+<div id="custom-search-input" class="col-md-3">
+    <div class="input-group ">
+        @Html.TextBox("keyword", ViewBag.Keyword as string, new { @class = "search-query form-control", placeholder = "Search", @autofocus = "autofocus" })
+        <span class="input-group-btn">
+            <a class="btn btn-danger" id="btn-search">
+                <span class=" glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+    </div>
+</div>
+
+<br />
+
+<div class="table-list">
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 65px"></th>
+
+            <th>
+                @ERPResource.JobScope
+            </th>
+            <th>
+                @ERPResource.Priority
+            </th>
+
+            <th>
+                @ERPResource.StartDate
+            </th>
+            <th>
+                @ERPResource.DueDate
+            </th>
+            <th>
+                @ERPResource.CompletionDate
+            </th>
+            <th>
+                @ERPResource.AssignedTo
+            </th>
+            <th>
+                @ERPResource.CompletePercent
+            </th>
+            <th>
+                @ERPResource.Status
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list-alt text-primary", @title = StringResources.ViewItem })
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit text-success", @title = StringResources.EditItem })
+
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash text-danger", @title = StringResources.DeleteItem })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobScope)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate, "StandardDateFormat")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate, "StandardDateFormat")
+                </td>
+                <td>
+                    @if (item.CompletedDate.HasValue) {
+                    @Html.DisplayFor(modelItem => item.CompletedDate, "StandardDateFormat")
+                    }
+                    else
+                    {
+                    }
+    
+                </td>
+
+                <td>
+                    @Html.Raw(item.User.Firstname + " " + item.User.Lastname)
+                </td>
+                <td>
+                    @Html.Raw((string.Format("{0:0}", item.CompletedPercent * 100)))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page, keyword = ViewBag.Keyword, orderby = ViewBag.OrderBy, order = ViewBag.SortOrder }), PagedListRenderOptions.Classic)
+@Html.Partial("SetupJSGrid")

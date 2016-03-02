@@ -1,0 +1,139 @@
+﻿@using test_kumo_eip0001model;
+@using test_kumo_eip0001model.Resources;
+@model test_kumo_eip0001model.Customer
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.DeleteItem</h3>
+            </div>
+            <div class="panel-body">
+                <h3>@StringResources.DeleteConfirmMessage</h3>
+                <hr />
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @CRMResource.CustomerId
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CustomerId)
+                        </dd>
+                        <dt>
+                            @CRMResource.CompanyName
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CompanyName)
+                        </dd>
+
+                        <dt>
+                            @CRMResource.Industry
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Industry.Name)
+                        </dd>
+
+                        <dt>
+                            @CRMResource.Website
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Website)
+                        </dd>
+
+                        <dt>
+                            @CRMResource.PhoneNumber
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Phone)
+                        </dd>
+                        
+                        <dt>
+                            @CRMResource.FaxNumber
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FaxNumber)
+                        </dd>
+
+
+                        <dt>
+                            @CRMResource.CompanyEmailAddress
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CompanyEmailAddress)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CompanyAddress)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Source)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Source)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+
+                        <dt>
+                            @{ var myHtmlString = new HtmlString(Model.Description);}
+                            @myHtmlString
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.AssignedTo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Employee.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LeadType)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LeadType)
+                        </dt>
+
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-primary" /> |
+                                @Html.ActionLink(StringResources.BackToList, "Index")
+                            </div>
+                        }
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

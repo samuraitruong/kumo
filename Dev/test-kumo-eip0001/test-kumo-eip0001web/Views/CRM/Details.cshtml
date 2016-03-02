@@ -1,0 +1,142 @@
+﻿@using test_kumo_eip0001model;
+@using test_kumo_eip0001model.Resources;
+@model test_kumo_eip0001model.Customer
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.ViewItem</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @CRMResource.CustomerId
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CustomerId)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.CompanyName
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CompanyName)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.Industry
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Industry.Name)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.Website
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Website)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.PhoneNumber
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Phone)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.FaxNumber
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FaxNumber)
+                    </dd>
+
+
+                    <dt>
+                        @CRMResource.CompanyEmailAddress
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CompanyEmailAddress)
+                    </dd>
+                    <dt>
+                        @CRMResource.CompanyAddress
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CompanyAddress)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.Source
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Source)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.Description
+                    </dt>
+
+                    <dd>
+                        @{ var myHtmlString = new HtmlString(Model.Description);}
+                        @myHtmlString
+                    </dd>
+
+                    <dt>
+                        @CRMResource.AssignedTo
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Employee.Name)
+                    </dd>
+
+                    <dt>
+                        @CRMResource.LeadType
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LeadType)
+                    </dd>
+
+                </dl>
+            </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-7">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink(StringResources.BackToList, "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+</body>
+
+</html>

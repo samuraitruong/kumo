@@ -1,0 +1,48 @@
+@using KUMO.CentralAdmin.Web
+@model DateTime?
+
+@{
+//http://www.eyecon.ro/bootstrap-datepicker/
+    var IsRequiredField = ViewData.ModelMetadata.IsRequired;
+    var id = ViewData.ModelMetadata.PropertyName.Split('.')[0];
+    DateTime dt;
+    if (Model.HasValue)
+    {
+        dt = (DateTime)Model;
+    }
+    else
+    {
+        dt = DateTime.Now;
+    }
+}
+
+<div class="form-group@(Html.ValidationErrorFor(m => m, " error has-error")) @Html.Raw(IsRequiredField?"has-feedback":"")">
+    @Html.LabelFor(m => m, new { @class = "control-label  col-md-3 " })
+    <div class="col-sm-6 controls">
+        
+        @Html.TextBox(id, dt.ToString("dd/MM/yyyy"), new { Name=id, id = id, @class = "form-control datepicker col-md-8", data_provide = "datepicker", data_date_language = "globalize", data_date = dt.ToString("dd/MM/yyyy"), data_date_format = "dd/mm/yyyy", data_date_today_highlight = "true", data_date_today_btn = "false" })
+        
+        @if (IsRequiredField)
+        {
+            <span class="glyphicon glyphicon-asterisk form-control-feedback text-danger"></span>
+        }
+
+        @Html.ValidationMessageFor(m => m, null, new { @class = "help-block" })
+    </div>
+</div>
+
+@*<div class="form-group@(Html.ValidationErrorFor(m => m, " error has-error")) @Html.Raw(IsRequiredField?"has-feedback":"")">
+    @Html.LabelFor(m => m, new { @class = "control-label col-md-3" })
+
+    <div class="col-sm-6 controls">
+
+        @Html.TextBoxFor(m => m, new { @class = "form-control datepicker  col-md-8", data_provide = "datepicker", data_date_language = "globalize", data_date = dt, data_date_format = System.Threading.Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern.Replace("M", "m"), data_date_today_highlight = "true", data_date_today_btn = "false" })
+        @if (IsRequiredField)
+        {
+            <span class="glyphicon glyphicon-asterisk form-control-feedback text-danger"></span>
+        }
+
+        @Html.ValidationMessageFor(m => m, null, new { @class = "help-block" })
+    </div>
+</div>*@
+

@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNet.Identity
+@using test_kumo_eip0001web.Utility
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+    <ul class="nav navbar-nav" style="padding-top: 5px; padding-right: 10px;">
+        <li class="dropdown" dropdown>
+            <span class="glyphicon glyphicon-user dropdown-toggle clickable" dropdown-toggle aria-haspopup="true" aria-expanded="false"
+                  style="width: 50px; height: 50px; font-size: 50px; padding: 0px; left:0; background-color: #a6a6a6; color: #fff"></span>
+            <ul class="dropdown-menu top-nav" style=" white-space: nowrap;">
+                <li><a style="text-decoration: none; font-weight: bold;">Hello @SessionManager.CurrentUser.FirstName @SessionManager.CurrentUser.LastName</a></li>
+                <li>@Html.ActionLink("Profile", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Sign out</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right top">
+        <li>@Html.ActionLink("Sign in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<KUMO.CentralAdmin.Model.User>
+@using PagedList.Mvc;
+@using PagedList;
+@using KUMO.CentralAdmin.Model;
+
+<h3>
+    All users
+</h3>
+<div id="custom-search-input" class="clearfix">
+    <div class="input-group col-md-3" style="padding-left: 0px;">
+
+
+        @Html.TextBox("keyword", ViewBag.Keyword as string, new { @class = "search-query form-control", placeholder = "Search" })
+        <span class="input-group-btn">
+            <a class="btn btn-danger" id="btn-search">
+                <span class=" glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+
+    </div>
+</div>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.ActionLink(StringResources.FirstName, "Index", new { orderby = "Firstname", keyword = ViewBag.Keyword, order = ViewBag.SortOrder }, new { @class = "sort-link " + ViewBag.SortOrder, rel = ViewBag.OrderBy, sp = "Firstname" })
+
+        </th>
+        <th>
+            @Html.ActionLink(StringResources.LastName, "Index", new { orderby = "Lastname", keyword = ViewBag.Keyword, order = ViewBag.SortOrder }, new { @class = "sort-link " + ViewBag.SortOrder, rel = ViewBag.OrderBy, sp = "Lastname" })
+
+        </th>
+
+        <th>
+            @StringResources.EmailAddress
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page, keyword = ViewBag.Keyword, orderby = ViewBag.OrderBy, order = ViewBag.SortOrder }), PagedListRenderOptions.Classic)
+@*@Html.Partial("SetupJSGrid")*@

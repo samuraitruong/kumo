@@ -1,0 +1,25 @@
+﻿@model DateTime?
+
+@{
+    string controlId = ViewData.TemplateInfo.HtmlFieldPrefix.Replace('.', '_');
+}
+
+
+@Html.HiddenFor(p=>p)
+
+@Html.TextBox("Date", Model.HasValue? Model.Value.Day.ToString(): null, new { placeholder="DD", @rel=controlId, onchange="updateField_" + controlId +"(this)"})/
+@Html.TextBox("Month", Model.HasValue ? Model.Value.Month.ToString() : null, new { placeholder = "MM", @rel = controlId, onchange = "updateField_" + controlId + "(this)" })/
+@Html.TextBox("Year", Model.HasValue ? Model.Value.Year.ToString() : null, new { placeholder = "YYYY", @rel = controlId, onchange = "updateField_" + controlId + "(this)" })
+
+<script>
+  
+    function @Html.Raw("updateField_" + controlId + "(sender)") {
+       
+        var dateString = "";
+        $("input[rel='@controlId']").each(function() {
+
+            dateString += $(this).val() +"/";
+        }) 
+        $("#@controlId").val(dateString.substr(0, dateString.length - 1));
+    }
+</script>

@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "ClosePopup";
+    Layout = "~/Views/Shared/_DialogLayout.cshtml";
+}
+<script>
+    frames.top.$.fancybox.close(true);
+    frames.top.document.location.href = frames.top.document.location.href;
+</script>

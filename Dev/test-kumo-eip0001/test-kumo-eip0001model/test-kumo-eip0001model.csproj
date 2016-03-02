@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD0A96C0-4171-4441-83BE-911FA4AFE351}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>test_kumo_eip0001model</RootNamespace>
+    <AssemblyName>test-kumo-eip0001model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Action.cs" />
+    <Compile Include="Announcement.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bank.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BankType.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BizExTracker.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Component.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactRole.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentLibrary.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyContact.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeSensitive.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmploymentStatus.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseCategory.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IdentityType.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Industry.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDetail.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IssueTracker.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobTitle.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeadType.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Meeting.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nationality.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialModels\Calendar.cs" />
+    <Compile Include="PartialModels\JobTitle.cs" />
+    <Compile Include="Payment.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentFrequency.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMode.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Qualification.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Relationship.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CCSResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCSResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CRMResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HRMResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRMResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MISResource.Designer.cs">
+      <DependentUpon>MISResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ExcelModel\Employee.cs" />
+    <Compile Include="ExcelModel\IExcelExportable.cs" />
+    <Compile Include="ExcelModel\TaskTracker.cs" />
+    <Compile Include="CAServiceException.cs" />
+    <Compile Include="InvalidTenantException.cs" />
+    <Compile Include="Resources\ERPResource.Designer.cs">
+      <DependentUpon>ERPResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RevenueTracker.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryTracker.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\CompareValidate.cs" />
+    <Compile Include="Resources\TaskTrackerResource.Designer.cs">
+      <DependentUpon>TaskTrackerResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\IssueTrackerResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IssueTrackerResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="KumoEnums.cs" />
+    <Compile Include="PartialEmployee.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IQueryableRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="RoleNames.cs" />
+    <Compile Include="Resources\StringResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SourceType.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAction.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskTracker.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test-kumo-eip00011.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tour.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="UserAction.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AnnouncementViewModel.cs" />
+    <Compile Include="ViewModels\DocumentLibrary.cs" />
+    <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="ViewModels\ReportDocumentViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\TaskTrackerViewModel.cs" />
+    <Compile Include="ViewModels\IssueTrackerViewModel.cs" />
+    <Compile Include="ViewModels\PasswordResetViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeMailViewModel.cs" />
+    <Compile Include="WorkPassType.cs">
+      <DependentUpon>test-kumo-eip0001.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test-kumo-eip0001.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>test-kumo-eip00011.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Providers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3rd\EPPlus\EPPlus.csproj">
+      <Project>{7b288026-5502-4a39-bf41-77e086f3e4a3}</Project>
+      <Name>EPPlus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CCSResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCSResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HRMResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HRMResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MISResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MISResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ERPResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ERPResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TaskTrackerResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TaskTrackerResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IssueTrackerResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IssueTrackerResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StringResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

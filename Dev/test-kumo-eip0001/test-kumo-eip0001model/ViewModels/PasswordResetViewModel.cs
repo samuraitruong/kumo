@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test_kumo_eip0001model.ViewModels
+{
+    public class PasswordResetViewModel
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string ResetUrl { get; set; }
+    }
+}

@@ -1,0 +1,43 @@
+﻿@using test_kumo_eip0001model.Resources;
+@model test_kumo_eip0001model.ViewModels.AnnouncementViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.AddANewItem</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Title)
+
+                    @Html.EditorFor(model => model.Body)
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+
+                        <input type="submit" class="btn btn-primary" value="Add" /> | @Html.ActionLink(StringResources.BackToList, "Index")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/val")
+    @Scripts.Render("~/Scripts/md")
+    <script>
+    $(document).ready(function () {
+        //$("[]")
+    });
+    </script>
+
+}

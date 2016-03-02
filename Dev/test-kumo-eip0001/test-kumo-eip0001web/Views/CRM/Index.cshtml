@@ -1,0 +1,113 @@
+﻿@model IEnumerable<test_kumo_eip0001model.Customer>
+@using PagedList.Mvc;
+@using PagedList;
+@using test_kumo_eip0001model;
+@using test_kumo_eip0001model.Resources;
+
+    <h3>
+        All customers
+    </h3>
+    <div id="custom-search-input">
+        <div class="input-group col-md-3">
+            
+            
+            @Html.TextBox("keyword", ViewBag.Keyword as string, new  { @class = "search-query form-control", placeholder = "Search" })
+            <span class="input-group-btn">
+                <a class="btn btn-danger" id="btn-search" >
+                    <span class=" glyphicon glyphicon-search"></span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+    <br/>
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 65px"></th>
+            <th>
+                @CRMResource.CustomerId
+            </th>
+            <th>
+                @Html.ActionLink(CRMResource.CompanyName, "Index", new { orderby = "CompanyName", keyword = ViewBag.Keyword, order = ViewBag.SortOrder }, new { @class = "sort-link", rel = ViewBag.OrderBy, sp = "CompanyName" })
+            </th>
+            <th>
+                @Html.ActionLink(CRMResource.Industry, "Index", new { orderby = "Industry.Name", keyword = ViewBag.Keyword, order = ViewBag.SortOrder }, new { @class = "sort-link", rel = ViewBag.OrderBy, sp = "Industry.Name" })
+
+            </th>
+            <th>
+                @CRMResource.Website
+            </th>
+            
+            <th>
+                @CRMResource.PhoneNumber
+            </th>
+            <th>
+                @CRMResource.FaxNumber
+            </th>
+            <th>
+                @CRMResource.CompanyEmailAddress
+            </th>
+            <th>
+                @CRMResource.CompanyAddress
+            </th>
+            <th>
+                @CRMResource.Source
+            </th>
+            <th>
+                @CRMResource.AssignedTo
+            </th>
+            <th>
+                @CRMResource.LeadType
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list-alt text-primary", @title = StringResources.ViewItem })
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit text-success", @title = StringResources.EditItem })
+
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash text-danger", @title = StringResources.DeleteItem })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Industry.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Website)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaxNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyEmailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadType)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page, keyword = ViewBag.Keyword, orderby = ViewBag.OrderBy, order = ViewBag.SortOrder }), PagedListRenderOptions.Classic)
+    @Html.Partial("SetupJSGrid")

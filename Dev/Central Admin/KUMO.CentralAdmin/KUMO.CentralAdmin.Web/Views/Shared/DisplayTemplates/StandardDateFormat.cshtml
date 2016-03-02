@@ -1,0 +1,6 @@
+﻿@using KUMO.CentralAdmin.Model;
+@model object
+@{
+var dateTime = Convert.ToDateTime(Model);
+}
+@dateTime.ToString(StringResources.DateFormat)

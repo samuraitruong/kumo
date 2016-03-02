@@ -1,0 +1,117 @@
+﻿@model test_kumo_eip0001model.IssueTracker
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-horizontal">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Issue tracker</h3>
+        </div>
+        <hr />
+
+        <div class="panel-body">
+            <dl class="dl-horizontal">
+                <dt>
+                    @IssueTrackerResource.IssueName
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @IssueTrackerResource.Priority
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Priority)
+                </dd>
+
+                <dt>
+                   @IssueTrackerResource.Category
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+
+                <dt>
+                    @IssueTrackerResource.StartDate
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartDate, "StandardDateFormat")
+                </dd>
+
+                <dt>
+                    @IssueTrackerResource.DueDate
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DueDate, "StandardDateFormat")
+                </dd>
+
+                <dt>
+                    @IssueTrackerResource.ClosedDate
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ClosedDate, "StandardDateFormat")
+                </dd>
+
+                <dt>
+                   @IssueTrackerResource.AssignedTo
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.Firstname)
+                    @Html.DisplayFor(model => model.User.Lastname)
+                </dd>
+
+                <dt>
+                    @IssueTrackerResource.IssueStatus
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+                <dt>
+                   @IssueTrackerResource.Description
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @IssueTrackerResource.Resolution
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Resolution)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-7">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                            @Html.ActionLink(StringResources.BackToList, "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

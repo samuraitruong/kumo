@@ -1,0 +1,102 @@
+﻿@using KUMO.CentralAdmin.Web.Models
+@using KUMO.CentralAdmin.Model
+@model TrialUserViewModel
+@{
+    ViewBag.Title = "Create Trial Account";
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Trial Account</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/ico" href="~/Content/images/KUMOFavicon.ico">
+    <link href="/Content/main.css" rel="stylesheet" />
+
+    <link href="/Content/site.css" rel="stylesheet" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div style="text-align: center " class="col-xs-8">
+
+        <div style="text-align: center; margin-left: 25px " class="col-xs-11">
+            <img src="/Content/Images/illustration.jpg" class="img-responsive" />
+        </div>
+
+    </div>
+
+    <div class="col-xs-4 login" style="height: 100% ;padding-top: 45px">
+
+        <div class="row"><img src="/Content/Images/bannerlogo.jpg" style="margin-top: 20px;margin-bottom: 20px;" /></div>
+        <div class="row">
+            <h4 style="margin-bottom: 30px;">Sign up to KUMO trial</h4>
+        </div>
+        <div style="margin-right: 33px;">
+            @{ Html.EnableClientValidation(); }
+
+            @using (Html.BeginForm("Index", "Trial", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                
+                
+                @Html.AntiForgeryToken()
+
+
+                <div class="row">
+                    @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control col-xs-12", @data_val = "true", @data_val_required = "The First name  field is required.", placeholder = KUMO.CentralAdmin.Model.Resources.TrialUserResources.Firstname, style = "margin-bottom: 20px; width: 60%" })
+                    @Html.ValidationMessageFor(m => m.Firstname, "", new { @class = "text-danger" })
+                </div>
+
+    <div class="row">
+        @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control col-xs-12", @data_val = "true", placeholder = KUMO.CentralAdmin.Model.Resources.TrialUserResources.Lastname, style = "margin-bottom: 20px; width: 60%" })
+        @Html.ValidationMessageFor(m => m.Lastname, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="row">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control col-xs-12", @data_val = "true", placeholder = KUMO.CentralAdmin.Model.Resources.TrialUserResources.Email, style = "margin-bottom: 20px; width: 60%" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="row">
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control col-xs-12", @data_val = "true", @data_val_required = "The First name  field is required.", placeholder = KUMO.CentralAdmin.Model.Resources.TrialUserResources.Phone, style = "margin-bottom: 20px; width: 60%" })
+        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="row">
+        @Html.TextBoxFor(m => m.Company, new { @class = "form-control col-xs-12", @data_val = "true", @data_val_required = "The First name  field is required.", placeholder = KUMO.CentralAdmin.Model.Resources.TrialUserResources.Company, style = "margin-bottom: 20px; width: 60%" })
+        @Html.ValidationMessageFor(m => m.Company, "", new { @class = "text-danger" })
+    </div>
+
+    
+                
+
+                <div class="row">
+                    @Html.ValidationSummary()
+
+                </div>
+
+                <div class="row">
+                    <input type="submit" class="btn btn-primary" value="Create trial account" style="margin-right: 10px;" />
+                    
+                   
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <div class="navbar navbar-fixed-bottom">
+        <div class="col-xs-8">&nbsp;</div>
+        <div class="col-xs-4">
+            @StringResources.FooterString
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+</body>
+</html>

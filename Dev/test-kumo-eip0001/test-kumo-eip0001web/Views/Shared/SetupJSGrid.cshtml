@@ -1,0 +1,32 @@
+﻿<script>
+    $(document).ready(function () {
+        //setup search button.
+        $("#keyword").change(function () {
+            $("#btn-search").attr("href", window.location.href.split('?')[0] + "?keyword=" + $(this).val());
+        });
+
+        $("#btn-search").click(function () {
+            $(this).attr("href", window.location.href.split('?')[0] + "?keyword=" + $("#keyword").val());
+            return true;
+        })
+
+        $('#keyword').keypress(function (e) {
+            if (e.which == 13) {
+                window.location.href = window.location.href.split('?')[0] + "?keyword=" + $("#keyword").val();
+            }
+        });
+
+        $('.sort-link').each(function () {
+            if ($(this).attr('rel') == $(this).attr('sp')) {
+                if ("@ViewBag.SortOrder" == "desc") {
+                    $(this).before("<i class='glyphicon glyphicon-arrow-up text-success' ></i>");
+                }
+                else {
+                    $(this).before("<i class='glyphicon glyphicon-arrow-down text-danger' ></i>");
+                }
+
+            }
+        })
+
+    });
+</script>

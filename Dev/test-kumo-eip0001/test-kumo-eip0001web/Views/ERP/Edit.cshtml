@@ -1,0 +1,106 @@
+﻿@model test_kumo_eip0001model.ViewModels.CalendarViewModel
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.EditItem</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.JobScope)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Priority, ERPResource.Priority, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <i class="glyphicon glyphicon-asterisk label-asterik text-danger"></i>
+                        <div class="col-sm-6 col-md-6 controls" style=" padding-top: 7px;">
+                            @Html.RadioButtonFor(model => model.Priority, ERPResource.Priority_High, true) @ERPResource.Priority_High
+                            <br />
+                            @Html.RadioButtonFor(model => model.Priority, ERPResource.Priority_Medium, true) @ERPResource.Priority_Medium
+                            <br />
+                            @Html.RadioButtonFor(model => model.Priority, ERPResource.Priority_Low, true) @ERPResource.Priority_Low
+                            <br />
+                            @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    @Html.EditorFor(model => model.StartDate)
+                    @Html.EditorFor(model => model.DueDate)
+                    @Html.EditorFor(model => model.CompletedDate)
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AssignedTo, ERPResource.AssignedTo, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-sm-6 col-md-6 controls">
+                            @Html.DropDownList("AssignedTo", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AssignedTo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CompletedPercent, ERPResource.CompletePercent, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-sm-6 col-md-6 controls">
+                            @Html.DropDownList("CompletedPercent", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CompletedPercent, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, ERPResource.Status, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <i class="glyphicon glyphicon-asterisk label-asterik text-danger"></i>
+                        <div class="col-sm-6 col-md-6 controls" style=" padding-top: 7px;">
+                            @Html.RadioButtonFor(model => model.Status, ERPResource.Status_NotStarted, true) @ERPResource.Status_NotStarted
+                            <br />
+                            @Html.RadioButtonFor(model => model.Status, ERPResource.Status_InProgress, true) @ERPResource.Status_InProgress
+                            <br />
+                            @Html.RadioButtonFor(model => model.Status, ERPResource.Status_Completed, true) @ERPResource.Status_Completed
+                            <br />
+                            @Html.RadioButtonFor(model => model.Status, ERPResource.Status_Deferred, true) @ERPResource.Status_Deferred
+                            <br />
+                            @Html.RadioButtonFor(model => model.Status, ERPResource.Status_Late, true) @ERPResource.Status_Late
+                            <br />
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3" style="border-left: dotted 1px #808080;display:none">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        <input type="submit" class="btn btn-primary" value="Save" /> | @Html.ActionLink(StringResources.BackToList, "Index")
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

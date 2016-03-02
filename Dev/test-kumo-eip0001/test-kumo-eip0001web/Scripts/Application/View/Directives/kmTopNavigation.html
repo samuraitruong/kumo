@@ -1,0 +1,11 @@
+﻿<ul class="nav navbar-nav top" style="padding-top: 5px; padding-left: 20px;">
+    <li id="navitem-{{navitem.state.toLowerCase()}}" class="dropdown" dropdown ng-class="{active: navitem.isActive == true}"
+        ng-if="isShowManageUser(navitem)" ng-repeat="navitem in navshowitems | filter:!navitem.isHide track by $index">
+        <a class="parent" ng-if="navitem.childNodes.length === 0" href="{{navitem.route}}">{{navitem.displayName}}</a>
+        <a class="dropdown-toggle parent clickable" dropdown-toggle aria-haspopup="true" ng-if="navitem.childNodes.length > 0" ng-hide="{{navitem.isHide}}" aria-expanded="false">{{navitem.displayName}}</a>
+        <ul class="dropdown-menu" ng-if="navitem.childNodes.length > 0">
+            <li id="childitem-{{child.state.toLowerCase()}}" ng-repeat="child in navitem.childNodes | filter:!child.isHide track by $index">
+                <a ng-hide="{{child.isHide}}" href="{{child.route}}">{{child.displayName}}</a>
+            </li>
+        </ul>
+    </li>

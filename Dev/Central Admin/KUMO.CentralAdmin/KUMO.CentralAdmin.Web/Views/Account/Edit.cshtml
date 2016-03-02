@@ -1,0 +1,45 @@
+﻿@model KUMO.CentralAdmin.Model.ViewModels.UserViewModel
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Edit account</h3>
+            </div>
+            <hr />
+            <div class="panel-body">
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Firstname, new { required = "required" })
+
+                    @Html.EditorFor(model => model.Lastname, new { required = "required" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-3", @style = "padding-top: 0" })
+                        <div class="col-sm-6 controls">@Model.Email</div>
+                    </div>
+
+
+                    @*@Html.EditorFor(model => model.Company, new { required = "required" })
+
+                        @Html.EditorFor(model => model.Phone, new { required = "required" })*@
+
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        <input type="submit" class="btn btn-primary" value="Save" /> | @Html.ActionLink("Back to List", "Index")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

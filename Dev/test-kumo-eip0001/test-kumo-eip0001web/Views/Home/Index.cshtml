@@ -1,0 +1,139 @@
+﻿@using test_kumo_eip0001model;
+@using test_kumo_eip0001web.Utility;
+@using test_kumo_eip0001model.Resources;
+@{
+    ViewBag.Title = "";
+}
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="row">
+    <h3 class="component-title"><strong>Core InterBlocks</strong></h3>
+</div>
+<div class="row">
+    <ul class="component-list">
+        @if (TenantHelper.IsComponentAvailable("HR") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "HR"))
+        { 
+        <li class="component-item" ng-mouseenter="hrclass = 'highlight'" ng-mouseleave="hrclass = ''">
+            <a href="/hr/">
+                <div style="position:relative" ng-class="hrclass">
+                    <img style="" src="~/Content/images/HRComponent.jpg">
+                    <div class="title-box">
+                        <ul class="title-detail">
+                            <li class="title-detail-medium">
+                                <div class="title-detail-text" style="font-size: 14px">@StringResources.HRComponent</div>
+                            </li>
+                            <li class="title-detail-description"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </a>
+        </li>
+        }
+        @if (TenantHelper.IsComponentAvailable("CCS") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "CCS"))
+        {
+            <li class="component-item" ng-mouseenter="ccsclass = 'highlight'" ng-mouseleave="ccsclass = ''">
+                <a href="/ccs/">
+                    <div style="position:relative" ng-class="ccsclass">
+                        <img style="" src="~/Content/images/CCSComponent.jpg">
+                        <div class="title-box">
+                            <ul class="title-detail">
+                                <li class="title-detail-medium">
+                                    <div class="title-detail-text" style="font-size: 14px">@StringResources.CCSComponent</div>
+                                </li>
+                                <li class="title-detail-description"></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </a>
+            </li>
+        }
+        @if (TenantHelper.IsComponentAvailable("CRM") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "CRM"))
+        {
+        <li class="component-item" ng-mouseenter="crmclass = 'highlight'" ng-mouseleave="crmclass = ''" >
+            <a href="/crm/">
+                <div style="position:relative" ng-class="crmclass">
+                    <img style="" src="~/Content/images/CRMComponent.jpg">
+                    <div class="title-box">
+                        <ul class="title-detail">
+                            <li class="title-detail-medium">
+                                <div class="title-detail-text" style="font-size: 14px">@StringResources.CRMComponent</div>
+                            </li>
+                            <li class="title-detail-description"></li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </li>
+        }
+        @if (TenantHelper.IsComponentAvailable("ERP") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "ERP"))
+        {
+            <li class="component-item" ng-mouseenter="erpclass = 'highlight'" ng-mouseleave="erpclass = ''">
+                <a href="/erp/Calendar">
+                    <div style="position:relative" ng-class="erpclass">
+                        <img style="" src="~/Content/images/ERPComponent.jpg">
+                        <div class="title-box">
+                            <ul class="title-detail">
+                                <li class="title-detail-medium">
+                                    <div class="title-detail-text" style="font-size: 14px">@StringResources.ERPComponent</div>
+                                </li>
+                                <li class="title-detail-description"></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </a>
+            </li>
+        }
+       @if (TenantHelper.IsComponentAvailable("MIS") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "MIS"))
+    {
+        <li class="component-item" ng-mouseenter="misclass = 'highlight'" ng-mouseleave="misclass = ''">
+            <a href="/mis">
+                <div style="position:relative" ng-class="misclass">
+                    <img style="" src="~/Content/images/MISComponent.jpg">
+                    <div class="title-box">
+                        <ul class="title-detail">
+                            <li class="title-detail-medium">
+                                <div class="title-detail-text" style="font-size: 14px">@StringResources.MISComponent</div>
+                            </li>
+                            <li class="title-detail-description"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </a>
+        </li>
+    }
+    
+        @if (TenantHelper.IsComponentAvailable("DMS") && SessionManager.CurrentUserPerm.Any(p => p.Component.Name == "DMS"))
+        {
+            <li class="component-item" ng-mouseenter="misclass = 'highlight'" ng-mouseleave="misclass = ''">
+                <a href="/dms">
+                    <div style="position:relative" ng-class="misclass">
+                        <img style="" src="~/Content/images/MISComponent.jpg">
+                        <div class="title-box">
+                            <ul class="title-detail">
+                                <li class="title-detail-medium">
+                                    <div class="title-detail-text" style="font-size: 14px">@StringResources.DMSComponent</div>
+                                </li>
+                                <li class="title-detail-description"></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </a>
+            </li>
+        }
+        
+    </ul>
+</div>
+
+@*<div class="row">
+    <ul class="component-list">
+
+    </ul>
+</div>*@

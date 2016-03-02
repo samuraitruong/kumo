@@ -1,0 +1,49 @@
+﻿@using KUMO.CentralAdmin.Model;
+@model EIPUser
+@{
+    ViewBag.Title = "Edit EIP User";
+    Client currentClient = Model.Client;
+}
+
+@section Breadcrum {
+
+    <li>@Html.ActionLink("Clients", "Index", "Clients")</li>
+    <li>@Html.ActionLink(currentClient.ClientName, "Details", "Clients", new { id = currentClient.Id }, null)</li>
+
+    <li class="active">@Model.Email</li>
+
+}
+
+<h3 class="panel-title">Edit EIP Account</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <div class="col-md-12">
+            @Html.HiddenFor(p => p.ClientId)
+            
+            @Html.EditorFor(model => model.Firstname, new { required = "required" })
+
+            @Html.EditorFor(model => model.Lastname, new { required = "required" })
+
+            @Html.EditorFor(model => model.Email, new { required = "required" })
+
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-7">
+                <input type="submit" class="btn btn-primary" value="Save" /> |
+                @Html.ActionLink("Back to List", "Index", ViewData[CAConstants.EXTRA_ROUTE_DATA])
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

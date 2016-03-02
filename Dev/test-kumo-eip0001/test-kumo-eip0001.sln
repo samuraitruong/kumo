@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-kumo-eip0001model", "test-kumo-eip0001model\test-kumo-eip0001model.csproj", "{BD0A96C0-4171-4441-83BE-911FA4AFE351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-kumo-eip0001repositories", "test-kumo-eip0001repositories\test-kumo-eip0001repositories.csproj", "{D2FEE63C-BA5F-45F6-AB44-67E3A4624E49}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "test-kumo-eip0001db", "test-kumo-eip0001db\test-kumo-eip0001db.sqlproj", "{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-kumo-eip0001application", "test-kumo-eip0001application\test-kumo-eip0001application.csproj", "{74185FBA-524E-474B-9CBE-2969F449C60F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-kumo-eip0001web", "test-kumo-eip0001web\test-kumo-eip0001web.csproj", "{42C928BD-926A-4BD8-9AB5-07767F5BABBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Readme", "Readme", "{35B91887-A725-47A6-9CCA-A735A2E8CE02}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd", "3rd", "{8D2E1EEF-1298-4923-A033-34703B0C6F58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPPlus", "3rd\EPPlus\EPPlus.csproj", "{7B288026-5502-4A39-BF41-77E086F3E4A3}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://test-kumo-eip.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = test-kumo-eip0001application\\test-kumo-eip0001application.csproj
+		SccProjectName1 = test-kumo-eip0001application
+		SccLocalPath1 = test-kumo-eip0001application
+		SccProjectUniqueName2 = test-kumo-eip0001db\\test-kumo-eip0001db.sqlproj
+		SccProjectName2 = test-kumo-eip0001db
+		SccLocalPath2 = test-kumo-eip0001db
+		SccProjectUniqueName3 = test-kumo-eip0001model\\test-kumo-eip0001model.csproj
+		SccProjectName3 = test-kumo-eip0001model
+		SccLocalPath3 = test-kumo-eip0001model
+		SccProjectUniqueName4 = test-kumo-eip0001repositories\\test-kumo-eip0001repositories.csproj
+		SccProjectName4 = test-kumo-eip0001repositories
+		SccLocalPath4 = test-kumo-eip0001repositories
+		SccProjectUniqueName5 = test-kumo-eip0001web\\test-kumo-eip0001web.csproj
+		SccProjectName5 = test-kumo-eip0001web
+		SccLocalPath5 = test-kumo-eip0001web
+		SccProjectUniqueName6 = 3rd\\EPPlus\\EPPlus.csproj
+		SccProjectTopLevelParentUniqueName6 = test-kumo-eip0001.sln
+		SccProjectName6 = 3rd/EPPlus
+		SccLocalPath6 = 3rd\\EPPlus
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD0A96C0-4171-4441-83BE-911FA4AFE351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0A96C0-4171-4441-83BE-911FA4AFE351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0A96C0-4171-4441-83BE-911FA4AFE351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0A96C0-4171-4441-83BE-911FA4AFE351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2FEE63C-BA5F-45F6-AB44-67E3A4624E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2FEE63C-BA5F-45F6-AB44-67E3A4624E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2FEE63C-BA5F-45F6-AB44-67E3A4624E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2FEE63C-BA5F-45F6-AB44-67E3A4624E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25C4B5A-E05F-47C0-B0DD-93040A0CE73D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{74185FBA-524E-474B-9CBE-2969F449C60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74185FBA-524E-474B-9CBE-2969F449C60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74185FBA-524E-474B-9CBE-2969F449C60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74185FBA-524E-474B-9CBE-2969F449C60F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C928BD-926A-4BD8-9AB5-07767F5BABBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C928BD-926A-4BD8-9AB5-07767F5BABBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C928BD-926A-4BD8-9AB5-07767F5BABBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C928BD-926A-4BD8-9AB5-07767F5BABBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B288026-5502-4A39-BF41-77E086F3E4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B288026-5502-4A39-BF41-77E086F3E4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B288026-5502-4A39-BF41-77E086F3E4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B288026-5502-4A39-BF41-77E086F3E4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B288026-5502-4A39-BF41-77E086F3E4A3} = {8D2E1EEF-1298-4923-A033-34703B0C6F58}
+	EndGlobalSection
+EndGlobal

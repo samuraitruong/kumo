@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/ico" href="~/Content/images/KUMOFavicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+</head>
+<body style="background: url('/Content/images/KUMOWatermarkTransparent.jpg') no-repeat center top; background-size:100% ; padding-top:0">
+    <div class="navbar-collapse navbar-responsive-collapse collapse" style="background: #0072c6;">
+        @if (Request.IsAuthenticated)
+        {
+            <ul class="nav navbar-nav top" style="padding-top: 5px; padding-left: 20px; padding-top: 5px; padding-left: 20px;">
+                <li class="@Url.IsSelected("Home")">@Html.ActionLink(StringResources.Home, "Index", "Home")</li>
+                <li class="@Url.IsSelected("Account")">@Html.ActionLink(StringResources.UserManagement, "Index", "Account")</li>
+                <li class="@Url.IsSelected("Clients")">@Html.ActionLink(StringResources.Clients, "Index", "Clients")</li>
+            </ul>
+        }
+        @Html.Partial("_LoginPartial")
+    </div>
+    <div class="list-box">
+        <ul class="nav nav-pills">
+            <li>@Html.ActionLink("Add", "Add", ViewData[CAConstants.EXTRA_ROUTE_DATA], null)</li>
+            <li>@Html.ActionLink("View", "Index", ViewData[CAConstants.EXTRA_ROUTE_DATA], null)</li>
+            </ul>
+        </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="list-box">
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink(StringResources.Home, "Index", "Home")</li>
+                @RenderSection("Breadcrum", false)
+            </ol>
+            
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

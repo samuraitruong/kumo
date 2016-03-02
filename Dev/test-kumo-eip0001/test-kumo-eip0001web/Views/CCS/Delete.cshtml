@@ -1,0 +1,58 @@
+﻿@model test_kumo_eip0001model.Announcement
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@StringResources.DeleteItem</h3>
+            </div>
+            <div class="panel-body">
+                <h3>@StringResources.DeleteConfirmMessage</h3>
+                <hr />
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @CCSResource.Title
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+
+                        <dt>
+                            @CCSResource.Body
+                        </dt>
+
+                        <dd>
+                            @{ var myHtmlString = new HtmlString(Model.Body);}
+                            @myHtmlString
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-7">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-primary" /> |
+                                @Html.ActionLink(StringResources.BackToList, "Index")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

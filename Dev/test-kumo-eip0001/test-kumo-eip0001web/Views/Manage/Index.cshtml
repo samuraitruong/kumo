@@ -1,0 +1,38 @@
+﻿@using test_kumo_eip0001model;
+@model test_kumo_eip0001web.Models.IndexViewModel
+@using test_kumo_eip0001model.Resources;
+           
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="list-box">
+    <h2>@ViewBag.Title</h2>
+
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <h4>Change your account settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@StringResources.FirstName</dt>
+        <dd>@Model.CurrentUser.Firstname</dd>
+        <dt>@StringResources.LastName</dt>
+        <dd>@Model.CurrentUser.Lastname</dd>
+        <dt>@StringResources.EmailAddress</dt>
+        <dd>@Model.CurrentUser.Email</dd>
+        <dt>@StringResources.Password</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+        
+    </dl>
+</div>

@@ -1,0 +1,78 @@
+﻿@model KUMO.CentralAdmin.Model.EIPUser
+
+@{
+    Client currentClient = Model.Client;
+}
+
+@section Breadcrum {
+
+    <li>@Html.ActionLink("Clients", "Index", "Clients")</li>
+    <li>@Html.ActionLink(currentClient.ClientName, "Details", "Clients", new { id = currentClient.Id }, null)</li>
+
+    <li class="active">@Model.Email</li>
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Delete an EIP Account</h3>
+            </div>
+            <div class="panel-body">
+                <h3>Are you sure you want to delete this account?</h3>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Firstname)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Firstname)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Lastname)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Lastname)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-7">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-primary" /> |
+                            @Html.ActionLink("Back to List", "Index", ViewData[CAConstants.EXTRA_ROUTE_DATA])
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

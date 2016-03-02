@@ -1,0 +1,50 @@
+﻿@using KUMO.CentralAdmin.Model;
+@model KUMO.CentralAdmin.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Add", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add a new account</h3>
+        </div>
+        <hr />
+        <div class="panel-body">
+
+
+            <div class="col-md-8">
+
+                @Html.EditorFor(model => model.Firstname, new { required = "required" })
+
+                @Html.EditorFor(model => model.Lastname, new { required = "required" })
+
+                @Html.EditorFor(model => model.Email, new { required = "required" })
+
+            </div>
+
+
+
+            <div class="col-md-4" style="border-left: dotted 1px #808080">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-7">
+                    <input type="submit" class="btn btn-primary" value="Add" /> | @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

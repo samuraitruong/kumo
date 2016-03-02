@@ -1,0 +1,97 @@
+﻿@using test_kumo_eip0001web.Models
+@using test_kumo_eip0001model.Resources;
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign in to KUMO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/ico" href="~/Content/images/KUMOFavicon.ico">
+    <link href="/Content/main.css" rel="stylesheet" />
+
+    <link href="/Content/site.css" rel="stylesheet" />
+    
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div style="text-align: center " class="col-xs-8">
+
+        <div style="text-align: center; margin-left: 25px " class="col-xs-11">
+            <img src="/Content/Images/illustration.jpg" class="img-responsive" />
+        </div>
+
+
+
+    </div>
+
+    <div class="col-xs-4 login" style="height: 100% ;padding-top: 45px">
+
+        <div class="row"><img src="/Content/Images/bannerlogo.jpg" style="margin-top: 20px;margin-bottom: 20px;" /></div>
+        <div class="row">
+            <h4 style="margin-bottom: 30px;">Sign in to KUMO</h4>
+        </div>
+        <div style="margin-right: 33px;">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                
+                <div class="row">
+
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control col-xs-12", @data_val = "true", @data_val_required = "The Email field is required.", placeholder = "Email Address", style = "margin-bottom: 20px; width: 60%" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                        <!--<input class="form-control col-xs-12" data-val="true" data-val-required="The User name field is required." id="UserName" name="UserName" placeholder="Username" style=" margin-bottom: 20px;" type="text" value="" />-->
+
+                    </div>
+                    <div class="row">
+
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control col-xs-12", @data_val = "true", @data_val_required = "The Password field is required.", placeholder = "Password", style = "margin-bottom: 20px; width: 60%" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                        <!--<input class="form-control col-xs-12" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" style=" margin-bottom: 20px;" type="password" />-->
+
+                    </div>
+                    <div class="row">
+                        @Html.ValidationSummary()
+
+                    </div>
+                    
+                    <div class="row">
+                        <input type="submit" class="btn btn-primary" value="Sign in" style="margin-right: 10px;" />
+                        <div class="checkbox" style="padding-top: 15px">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @style="margin-left: 0px;"})
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                        <div style="padding-top: 10px">
+                            @Html.ActionLink(StringResources.ForgotPassword, "ForgotPassword")
+                        </div>
+                    </div>
+            }
+        </div>
+
+    </div>
+
+    <div class="navbar navbar-fixed-bottom">
+        <div class="col-xs-8">&nbsp;</div>
+        <div class="col-xs-4">
+            @StringResources.FooterString
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

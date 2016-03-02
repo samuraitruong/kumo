@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MimeTypes>
+  <MimeType Type="application/mac-binhex40" Extensions=".hqx"/>
+  <MimeType Type="application/msword" Extensions=".doc;.docx"/>
+  <MimeType Type="application/pdf" Extensions=".pdf"/>
+  <MimeType Type="application/postscript" Extensions=".ai;.eps;.ps"/>
+  <MimeType Type="application/rtf" Extensions=".rtf"/>
+  <MimeType Type="application/vnd.ms-excel"            Extensions=".xla;.xlc;.xlm;.xls;.xlt;.xlw;.xlsx"/>
+  <MimeType Type="application/vnd.ms-outlook" Extensions=".msg"/>
+  <MimeType Type="application/vnd.ms-powerpoint"
+            Extensions=".pot;.pps;.ppt;.pptx"/>
+  <MimeType Type="application/vnd.ms-works" Extensions=".wcm;.wdb;.wks;.wps"/>
+  <MimeType Type="application/x-compress" Extensions=".z"/>
+  <MimeType Type="application/x-compressed" Extensions=".tgz"/>
+  <MimeType Type="application/x-gzip" Extensions=".gz"/>
+  <MimeType Type="application/x-msaccess" Extensions=".mdb"/>
+  <MimeType Type="application/x-msmetafile" Extensions=".wmf"/>
+  <MimeType Type="application/x-mspublisher" Extensions=".pub"/>
+  <MimeType Type="application/x-msschedule" Extensions=".scd"/>
+  <MimeType Type="application/x-msterminal" Extensions=".trm"/>
+  <MimeType Type="application/x-mswrite" Extensions=".wri"/>
+  <MimeType Type="application/x-tar" Extensions=".tar"/>
+  <MimeType Type="application/zip" Extensions=".zip"/>
+  <MimeType Type="audio/basic" Extensions=".au;.snd"/>
+  <MimeType Type="audio/mid" Extensions=".mid;.rmi"/>
+  <MimeType Type="audio/mpeg" Extensions=".mp3"/>
+  <MimeType Type="audio/x-aiff" Extensions=".aif;.aifc;.aiff"/>
+  <MimeType Type="audio/x-pn-realaudio" Extensions=".ra;.ram"/>
+  <MimeType Type="audio/x-wav" Extensions=".wav"/>
+  <MimeType Type="image/bmp" Extensions=".bmp"/>
+  <MimeType Type="image/gif" Extensions=".gif"/>
+  <MimeType Type="image/jpeg" Extensions=".jpe;.jpeg;.jpg"/>
+  <MimeType Type="image/pipeg" Extensions=".jfif"/>
+  <MimeType Type="image/tiff" Extensions=".tif;.tiff"/>
+  <!--Substitute the following two for text/plain if you're sure bad html
+  won't get rendered in the browser-->
+  <!--<MimeType Type="text/html" Extensions=".mht;.html;.htm"/>-->
+  <!--<MimeType Type="text/plain" Extensions=".txt"/>-->
+  <MimeType Type="text/plain" Extensions=".txt;.html;.htm"/>
+  <MimeType Type="text/richtext" Extensions=".rtx"/>
+  <MimeType Type="text/tab-separated-values" Extensions=".tsv"/>
+  <MimeType Type="video/mpeg" Extensions=".mp2;.mpa;.mpe;.mpeg;.mpg;.mpv2"/>
+  <MimeType Type="video/quicktime" Extensions=".mov;.qt"/>
+  <MimeType Type="video/x-la-asf" Extensions=".lsf;.lsx;.asf;.asr;.asx;"/>
+  <MimeType Type="video/x-msvideo" Extensions=".avi"/>
+</MimeTypes>

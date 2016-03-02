@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="afdac7490559415fad0debe4669f09ab" Name="Diagram1" ZoomLevel="58">
+        <EntityTypeShape EntityType="Model.Account" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Announcement" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="1.5" PointY="38.625" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="3" PointY="51.5" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="41.125" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="0.75" PointY="31.375" />
+        <EntityTypeShape EntityType="Model.Bank" Width="1.5" PointX="0.75" PointY="46" />
+        <EntityTypeShape EntityType="Model.BankType" Width="1.5" PointX="3.75" PointY="37.5" />
+        <EntityTypeShape EntityType="Model.BizExTracker" Width="1.5" PointX="8.25" PointY="22.5" />
+        <EntityTypeShape EntityType="Model.Calendar" Width="1.5" PointX="3" PointY="47.75" />
+        <EntityTypeShape EntityType="Model.Company" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.Component" Width="1.5" PointX="5.75" PointY="55.75" />
+        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="10.5" PointY="15.625" />
+        <EntityTypeShape EntityType="Model.ContactRole" Width="1.5" PointX="8.25" PointY="14.625" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="5.25" PointY="17.125" />
+        <EntityTypeShape EntityType="Model.Department" Width="1.5" PointX="0.75" PointY="29" />
+        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="8" PointY="28.375" />
+        <EntityTypeShape EntityType="Model.DocumentLibrary" Width="1.5" PointX="5.75" PointY="52.375" />
+        <EntityTypeShape EntityType="Model.EmergencyContact" Width="1.5" PointX="8.25" PointY="17.625" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="3" PointY="18.125" />
+        <EntityTypeShape EntityType="Model.EmployeeSensitive" Width="1.5" PointX="11.25" PointY="20.5" />
+        <EntityTypeShape EntityType="Model.EmploymentStatus" Width="1.5" PointX="0.75" PointY="19" />
+        <EntityTypeShape EntityType="Model.Event" Width="1.5" PointX="5.25" PointY="48.25" />
+        <EntityTypeShape EntityType="Model.ExpenseCategory" Width="1.5" PointX="6" PointY="9.25" />
+        <EntityTypeShape EntityType="Model.IdentityType" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="Model.Industry" Width="1.5" PointX="3" PointY="15.25" />
+        <EntityTypeShape EntityType="Model.InvoiceDetail" Width="1.5" PointX="13.75" PointY="12.375" />
+        <EntityTypeShape EntityType="Model.Invoice" Width="1.5" PointX="11.5" PointY="12.25" />
+        <EntityTypeShape EntityType="Model.IssueTracker" Width="1.5" PointX="3" PointY="43.75" />
+        <EntityTypeShape EntityType="Model.JobTitle" Width="1.5" PointX="0.75" PointY="16.625" />
+        <EntityTypeShape EntityType="Model.LeadType" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="Model.Meeting" Width="1.5" PointX="5.25" PointY="44.875" />
+        <EntityTypeShape EntityType="Model.Nationality" Width="1.5" PointX="0.75" PointY="43.75" />
+        <EntityTypeShape EntityType="Model.PaymentFrequency" Width="1.5" PointX="0.75" PointY="41.125" />
+        <EntityTypeShape EntityType="Model.PaymentMode" Width="1.5" PointX="0.75" PointY="23.375" />
+        <EntityTypeShape EntityType="Model.Payment" Width="1.5" PointX="6" PointY="22.875" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="11.5" PointY="9.625" />
+        <EntityTypeShape EntityType="Model.Project" Width="1.5" PointX="5.25" PointY="41.625" />
+        <EntityTypeShape EntityType="Model.Qualification" Width="1.5" PointX="0.75" PointY="26.5" />
+        <EntityTypeShape EntityType="Model.Relationship" Width="1.5" PointX="6" PointY="14.5" />
+        <EntityTypeShape EntityType="Model.RevenueTracker" Width="1.5" PointX="13.75" PointY="19.375" />
+        <EntityTypeShape EntityType="Model.SalaryTracker" Width="1.5" PointX="5.25" PointY="27.125" />
+        <EntityTypeShape EntityType="Model.SourceType" Width="1.5" PointX="3" PointY="12.625" />
+        <EntityTypeShape EntityType="Model.SystemAction" Width="1.5" PointX="5.75" PointY="31.375" />
+        <EntityTypeShape EntityType="Model.TaskTracker" Width="1.5" PointX="3" PointY="32.375" />
+        <EntityTypeShape EntityType="Model.Tour" Width="1.5" PointX="5.25" PointY="34" />
+        <EntityTypeShape EntityType="Model.UserAction" Width="1.5" PointX="8" PointY="33.25" />
+        <EntityTypeShape EntityType="Model.Vendor" Width="1.5" PointX="6" PointY="6.875" />
+        <EntityTypeShape EntityType="Model.WorkPassType" Width="1.5" PointX="0.75" PointY="11.75" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUser_UserId" />
+        <AssociationConnector Association="Model.FK_Calendar_AspNetUser" />
+        <AssociationConnector Association="Model.FK_Document_User" />
+        <AssociationConnector Association="Model.FK_Employee_AspNetUser" />
+        <AssociationConnector Association="Model.FK_Employee_User" />
+        <AssociationConnector Association="Model.FK_Issue_User" />
+        <AssociationConnector Association="Model.FK_Task_User" />
+        <AssociationConnector Association="Model.FK_UserActions_User" />
+        <AssociationConnector Association="Model.FK_Employee_Bank" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_BankTypes" />
+        <AssociationConnector Association="Model.FK_Payments_BankType" />
+        <AssociationConnector Association="Model.FK_BizExTrackers_Employee" />
+        <AssociationConnector Association="Model.FK_BizExTrackers_ExpenseCategory" />
+        <AssociationConnector Association="Model.FK_BizExTrackers_PaymentMode" />
+        <AssociationConnector Association="Model.FK_BizExTrackers_Vender" />
+        <AssociationConnector Association="Model.FK_UserActions_Component" />
+        <AssociationConnector Association="Model.FK_Contact_Customer" />
+        <AssociationConnector Association="Model.FK_Contact_Role" />
+        <AssociationConnector Association="Model.FK_RevenueTrackers_Contact" />
+        <AssociationConnector Association="Model.FK_Customer_Industry" />
+        <AssociationConnector Association="Model.FK_Customer_LeadType" />
+        <AssociationConnector Association="Model.FK_Customer_SourceType" />
+        <AssociationConnector Association="Model.FK_Customer_ToTable" />
+        <AssociationConnector Association="Model.FK_RevenueTrackers_Customer" />
+        <AssociationConnector Association="Model.FK_Employee_Department" />
+        <AssociationConnector Association="Model.FK_Document_DocumentLibrary" />
+        <AssociationConnector Association="Model.FK_Document_Parent" />
+        <AssociationConnector Association="Model.FK_EmergencyContact_Employee" />
+        <AssociationConnector Association="Model.FK_EmergencyContact_Relationship" />
+        <AssociationConnector Association="Model.FK_Employee_EmploymentStatus" />
+        <AssociationConnector Association="Model.FK_Employee_IdentificationType" />
+        <AssociationConnector Association="Model.FK_Employee_JobTitle" />
+        <AssociationConnector Association="Model.FK_Employee_Manager" />
+        <AssociationConnector Association="Model.FK_Employee_Nationality" />
+        <AssociationConnector Association="Model.FK_Employee_PaymentFrequency" />
+        <AssociationConnector Association="Model.FK_Employee_PaymentMode" />
+        <AssociationConnector Association="Model.FK_Employee_Qualification" />
+        <AssociationConnector Association="Model.FK_Employee_WorkPassType" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_Employee" />
+        <AssociationConnector Association="Model.FK_Events_Employee" />
+        <AssociationConnector Association="Model.FK_Meetings_Employee" />
+        <AssociationConnector Association="Model.FK_Project_Employee" />
+        <AssociationConnector Association="Model.FK_SalaryTrackers_Employee" />
+        <AssociationConnector Association="Model.FK_Tours_Employee" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_EmploymentStatus" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_IdentityType" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_PaymentFrequency" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_PaymentModes" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_Qualitifications" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_Relationship" />
+        <AssociationConnector Association="Model.FK_EmployeeSensitive_WorkPassTypes" />
+        <AssociationConnector Association="Model.FK_InvoiceDetails_Product" />
+        <AssociationConnector Association="Model.FK_RevenueTrackers_Invoice" />
+        <AssociationConnector Association="Model.FK_Payments_PaymentMode" />
+        <AssociationConnector Association="Model.FK_RevenueTrackers_Payment" />
+        <AssociationConnector Association="Model.FK_UserActions_Action" />
+        <AssociationConnector Association="Model.AspNetUserRoles" />
+        <AssociationConnector Association="Model.InvoiceInvoiceDetails" />
+        <AssociationConnector Association="Model.FK_Employee_Emergency_Contact_Relationship" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
